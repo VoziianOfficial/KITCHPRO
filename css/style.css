@@ -1501,10 +1501,6 @@ h6 {
         --section-space-sm: 46px;
     }
 
-    .site-header__shell {
-        grid-template-columns: auto auto auto;
-    }
-
     .main-nav {
         display: none;
     }
@@ -1828,4 +1824,92 @@ h6 {
 
 .site-header .logo .logo__word {
     white-space: nowrap;
+}
+
+/* =========================
+   FINAL HEADER LOGO BALANCE
+========================= */
+
+.site-header .logo {
+    gap: 1px;
+    align-items: center;
+}
+
+.site-header .logo__icon {
+    width: 66px;
+    height: 66px;
+    flex: 0 0 66px;
+    transform: translateY(5px);
+    filter:
+        drop-shadow(0 10px 18px rgba(232, 117, 37, 0.28)) drop-shadow(0 3px 10px rgba(0, 0, 0, 0.38));
+}
+
+.site-header .logo__word {
+    font-size: 1.38rem;
+    line-height: 1;
+    letter-spacing: -0.058em;
+    transform: translateY(1px);
+}
+
+.site-header.is-scrolled .logo__icon {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+    transform: translateY(4px);
+}
+
+.site-header.is-scrolled .logo__word {
+    font-size: 1.3rem;
+}
+
+/* чтобы хедер не зажимал крупный логотип */
+.site-header__shell {
+    min-height: 74px;
+}
+
+.site-header.is-scrolled .site-header__shell {
+    min-height: 66px;
+}
+
+@media (max-width: 760px) {
+    .site-header .logo {
+        gap: 10px;
+    }
+
+    .site-header .logo__icon {
+        width: 52px;
+        height: 52px;
+        flex-basis: 52px;
+        transform: translateY(4px);
+    }
+
+    .site-header .logo__word {
+        font-size: 1.12rem;
+        transform: translateY(1px);
+    }
+
+    .site-header__shell {
+        min-height: 64px;
+    }
+}
+
+@media (max-width: 430px) {
+    .site-header .logo {
+        gap: 1px;
+    }
+
+    .site-header .logo__icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        transform: translateY(4px);
+    }
+
+    .site-header .logo__word {
+        font-size: 1.02rem;
+    }
+
+    .site-header__shell {
+        min-height: 60px;
+    }
 }
