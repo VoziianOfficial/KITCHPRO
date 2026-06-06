@@ -1,0 +1,74 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="64" height="64" rx="18" fill="#15110E"/>
+
+    <defs>
+        <linearGradient id="stone" x1="12" y1="38" x2="52" y2="38" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F6EBDD"/>
+            <stop offset="48%" stop-color="#DCC7AD"/>
+            <stop offset="100%" stop-color="#BEA180"/>
+        </linearGradient>
+
+        <linearGradient id="copper" x1="27" y1="13" x2="43" y2="33" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFB979"/>
+            <stop offset="45%" stop-color="#E87525"/>
+            <stop offset="100%" stop-color="#B94E13"/>
+        </linearGradient>
+    </defs>
+
+    <path
+        d="M29 35V21C29 16.6 32.6 13 37 13C41.4 13 45 16.6 45 21V25"
+        stroke="url(#copper)"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="M45 25H39"
+        stroke="url(#copper)"
+        stroke-width="5"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M24 22H31"
+        stroke="url(#copper)"
+        stroke-width="3.5"
+        stroke-linecap="round"
+    />
+
+    <rect
+        x="12"
+        y="34"
+        width="40"
+        height="11"
+        rx="4"
+        fill="url(#stone)"
+        stroke="#2A211C"
+        stroke-width="2"
+    />
+
+    <path
+        d="M17 39C22 37 26 41 31 39C36 37 40 37 46 39"
+        stroke="#7E634F"
+        stroke-opacity="0.35"
+        stroke-width="1.6"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M18 36.5H31"
+        stroke="#FFFFFF"
+        stroke-opacity="0.45"
+        stroke-width="1.8"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M18 50H46"
+        stroke="#0D0A08"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.7"
+    />
+</svg>
