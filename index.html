@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="KITCHPRO helps homeowners compare local kitchen remodeling providers, explore service categories, and request quote options." />
+
+    <title>KITCHPRO | Kitchen Remodeling Provider Comparison</title>
+
+    <link rel="icon" href="assets/favicon/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-site-header>
+        <div class="site-header__shell">
+            <a class="logo" href="index.html" aria-label="KITCHPRO home" data-nav-link>
+                <svg class="logo__icon" width="220" height="220" viewBox="0 0 220 220" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="kpStoneHeader" x1="46" y1="112" x2="174" y2="112"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#F6EBDD" />
+                            <stop offset="48%" stop-color="#DCC7AD" />
+                            <stop offset="100%" stop-color="#BEA180" />
+                        </linearGradient>
+                        <linearGradient id="kpCopperHeader" x1="92" y1="48" x2="144" y2="106"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#FFB979" />
+                            <stop offset="45%" stop-color="#E87525" />
+                            <stop offset="100%" stop-color="#B94E13" />
+                        </linearGradient>
+                        <linearGradient id="kpShadowLineHeader" x1="60" y1="140" x2="160" y2="148"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#2A211C" />
+                            <stop offset="100%" stop-color="#15110E" />
+                        </linearGradient>
+                        <filter id="kpSoftShadowHeader" x="34" y="34" width="152" height="126"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#15110E" flood-opacity="0.25" />
+                        </filter>
+                        <clipPath id="kpSlabClipHeader">
+                            <rect x="46" y="96" width="128" height="28" rx="10" />
+                        </clipPath>
+                    </defs>
+                    <g filter="url(#kpSoftShadowHeader)">
+                        <path d="M100 97V72C100 61.5066 108.507 53 119 53C129.493 53 138 61.5066 138 72V82"
+                            stroke="url(#kpCopperHeader)" stroke-width="8" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M138 82H126" stroke="url(#kpCopperHeader)" stroke-width="8" stroke-linecap="round" />
+                        <path d="M91 78H106" stroke="url(#kpCopperHeader)" stroke-width="5" stroke-linecap="round" />
+                        <rect x="46" y="96" width="128" height="28" rx="10" fill="url(#kpStoneHeader)" stroke="#2A211C"
+                            stroke-width="3" />
+                        <g clip-path="url(#kpSlabClipHeader)">
+                            <path d="M58 109C71 104 82 113 96 108C108 104 122 103 136 108" stroke="#7E634F"
+                                stroke-opacity="0.30" stroke-width="2.4" stroke-linecap="round" />
+                            <path d="M92 99C101 104 111 104 121 101" stroke="#FFFFFF" stroke-opacity="0.38"
+                                stroke-width="2" stroke-linecap="round" />
+                            <path d="M126 118C138 113 147 117 160 112" stroke="#8B705A" stroke-opacity="0.24"
+                                stroke-width="2" stroke-linecap="round" />
+                        </g>
+                        <path d="M58 102H102" stroke="#FFFFFF" stroke-opacity="0.42" stroke-width="2.8"
+                            stroke-linecap="round" />
+                        <path d="M64 141H156" stroke="url(#kpShadowLineHeader)" stroke-width="6"
+                            stroke-linecap="round" />
+                    </g>
+                </svg>
+
+                <span class="logo__word" aria-hidden="true">
+                    <span>KITCH</span><span>PRO</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <a class="nav-link" href="index.html" data-nav-link>Home</a>
+
+                <div class="dropdown" data-services-dropdown>
+                    <a class="dropdown__button" href="services.html" aria-expanded="false"
+                        aria-controls="services-dropdown" data-dropdown-toggle data-nav-link>
+                        Services
+                        <svg class="dropdown__chevron" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 9L12 15L18 9" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+
+                    <div class="dropdown__panel" id="services-dropdown" data-dropdown-panel hidden>
+                        <div class="dropdown__list" data-service-menu></div>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="about.html" data-nav-link>About</a>
+                <a class="nav-link" href="contact.html" data-nav-link>Contact</a>
+            </nav>
+
+            <div class="site-header__actions">
+                <a class="icon-btn" href="tel:+18885550148" aria-label="Call KITCHPRO" data-phone-link>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M22 16.92V20A2 2 0 0 1 19.82 22A19.86 19.86 0 0 1 3 5.18A2 2 0 0 1 5 3H8.09A2 2 0 0 1 10.06 4.72L10.7 7.82A2 2 0 0 1 10.14 9.65L8.9 10.89A16 16 0 0 0 13.11 15.1L14.35 13.86A2 2 0 0 1 16.18 13.3L19.28 13.94A2 2 0 0 1 22 16.92Z"
+                            fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+
+                <a class="icon-btn" href="mailto:hello@kitchprocompare.com" aria-label="Email KITCHPRO" data-email-link>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 6H20V18H4V6Z" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linejoin="round" />
+                        <path d="M4 7L12 13L20 7" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+
+                <button class="mobile-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu"
+                    aria-expanded="false" data-mobile-toggle>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <div class="mobile-menu__panel" data-mobile-panel>
+            <div class="mobile-menu__top">
+                <a class="logo" href="index.html" aria-label="KITCHPRO home">
+                    <span class="logo__word" aria-hidden="true">
+                        <span>KITCH</span><span>PRO</span>
+                    </span>
+                </a>
+
+                <button class="mobile-menu__close" type="button" aria-label="Close menu" data-mobile-close>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 6L18 18" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" />
+                        <path d="M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+                <a class="mobile-menu__link" href="index.html" data-nav-link>Home</a>
+                <a class="mobile-menu__link" href="services.html" data-nav-link>Services</a>
+                <a class="mobile-menu__link" href="about.html" data-nav-link>About</a>
+                <a class="mobile-menu__link" href="contact.html" data-nav-link>Contact</a>
+            </nav>
+
+            <div class="mobile-menu__section">
+                <p class="mobile-menu__label">Kitchen services</p>
+                <div class="mobile-menu__services" data-mobile-service-menu></div>
+            </div>
+
+            <div class="mobile-menu__contact">
+                <a class="btn btn--primary btn--small" href="tel:+18885550148" data-phone-link>
+                    Call
+                </a>
+                <a class="btn btn--secondary btn--small" href="mailto:hello@kitchprocompare.com" data-email-link>
+                    Email
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main id="main">
+        <section class="hero home-hero" aria-labelledby="home-hero-title">
+            <div class="hero__inner">
+                <div class="container-wide">
+                    <div class="hero__content">
+                        <p class="kicker">Independent kitchen remodeling comparison</p>
+
+                        <h1 class="hero__title" id="home-hero-title">
+                            Compare Local Kitchen Remodeling Providers
+                        </h1>
+
+                        <p class="hero__text">
+                            Explore service categories, compare project options, and request quote paths from local
+                            kitchen remodeling companies.
+                        </p>
+
+                        <div class="hero__actions">
+                            <a class="btn btn--primary" href="contact.html#contact-form">
+                                <span data-cta-text="primary">Compare Providers</span>
+                                <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                        stroke-linecap="round" />
+                                    <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+
+                            <a class="btn btn--secondary" href="services.html">
+                                <span data-cta-text="secondary">View Services</span>
+                                <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                        stroke-linecap="round" />
+                                    <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="hero__chips" aria-label="KITCHPRO benefits">
+                            <div class="hero-chip">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 3L20 6V11C20 16 16.5 20.2 12 21C7.5 20.2 4 16 4 11V6L12 3Z" fill="none"
+                                        stroke="currentColor" stroke-width="1.8" />
+                                    <path d="M8.5 12L11 14.5L16 9.5" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Independent &amp; Unbiased</span>
+                            </div>
+
+                            <div class="hero-chip">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M17 21V19A4 4 0 0 0 13 15H7A4 4 0 0 0 3 19V21" fill="none"
+                                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                                    <path d="M10 11A4 4 0 1 0 10 3A4 4 0 0 0 10 11Z" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <path d="M21 21V19A4 4 0 0 0 18 15.13" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" />
+                                    <path d="M16 3.13A4 4 0 0 1 16 10.87" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                                <span>Multiple Local Options</span>
+                            </div>
+
+                            <div class="hero-chip">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M20.6 13.7L13.7 20.6A2 2 0 0 1 10.9 20.6L3 12.7V3H12.7L20.6 10.9A2 2 0 0 1 20.6 13.7Z"
+                                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                                    <path d="M7.5 7.5H7.52" fill="none" stroke="currentColor" stroke-width="3"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <span>Free to Explore &amp; Compare</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="anchor-strip" aria-label="Home page sections">
+            <div class="anchor-strip__inner">
+                <a class="anchor-link" href="#services">Services</a>
+                <a class="anchor-link" href="#zones">Kitchen Zones</a>
+                <a class="anchor-link" href="#materials">Materials</a>
+                <a class="anchor-link" href="#provider-path">Provider Path</a>
+                <a class="anchor-link" href="#contact-cta">Contact</a>
+            </div>
+        </nav>
+
+        <section class="home-services section section--dark" id="services" aria-labelledby="featured-services-title">
+            <div class="container-wide">
+                <div class="home-services__layout">
+                    <div class="section-heading home-services__heading">
+                        <p class="section-kicker">Featured kitchen services</p>
+                        <h2 id="featured-services-title">Explore Popular Kitchen Services</h2>
+                        <div class="copper-line"></div>
+                    </div>
+
+                    <div class="featured-service-list">
+                        <article class="featured-service-row">
+                            <a class="featured-service-row__photo photo-frame shine-panel"
+                                href="full-kitchen-remodeling.html">
+                                <img src="assets/images/full-kitchen-remodeling.jpg"
+                                    alt="Premium kitchen with dark cabinets and stone island" />
+                            </a>
+
+                            <div class="featured-service-row__content shine-panel">
+                                <span class="featured-service-row__number">01</span>
+                                <h3>Full Kitchen Remodeling</h3>
+                                <p>Complete kitchen transformation, layout changes, surfaces, storage, and finishes.</p>
+                                <a class="arrow-link" href="full-kitchen-remodeling.html"
+                                    aria-label="View Full Kitchen Remodeling">
+                                    View
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" />
+                                        <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="featured-service-row featured-service-row--reverse">
+                            <a class="featured-service-row__photo photo-frame shine-panel"
+                                href="custom-cabinets-refacing.html">
+                                <img src="assets/images/custom-cabinets-refacing.jpg"
+                                    alt="Custom kitchen cabinets with warm lighting" />
+                            </a>
+
+                            <div class="featured-service-row__content shine-panel">
+                                <span class="featured-service-row__number">02</span>
+                                <h3>Custom Cabinets &amp; Refacing</h3>
+                                <p>Cabinet doors, refacing, storage upgrades, finishes, and built-in solutions.</p>
+                                <a class="arrow-link" href="custom-cabinets-refacing.html"
+                                    aria-label="View Custom Cabinets and Refacing">
+                                    View
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" />
+                                        <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="featured-service-row">
+                            <a class="featured-service-row__photo photo-frame shine-panel"
+                                href="countertops-stone-surfaces.html">
+                                <img src="assets/images/countertops-stone-surfaces.jpg"
+                                    alt="Stone countertop and marble kitchen island" />
+                            </a>
+
+                            <div class="featured-service-row__content shine-panel">
+                                <span class="featured-service-row__number">03</span>
+                                <h3>Countertops &amp; Stone Surfaces</h3>
+                                <p>Quartz, marble, granite, stone surfaces, waterfall edges, and island tops.</p>
+                                <a class="arrow-link" href="countertops-stone-surfaces.html"
+                                    aria-label="View Countertops and Stone Surfaces">
+                                    View
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" />
+                                        <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="featured-service-row featured-service-row--reverse">
+                            <a class="featured-service-row__photo photo-frame shine-panel"
+                                href="kitchen-islands-layout-upgrades.html">
+                                <img src="assets/images/kitchen-islands-layout-upgrades.jpg"
+                                    alt="Kitchen island with seating and layout upgrades" />
+                            </a>
+
+                            <div class="featured-service-row__content shine-panel">
+                                <span class="featured-service-row__number">04</span>
+                                <h3>Kitchen Islands &amp; Layout Upgrades</h3>
+                                <p>Island seating, layout changes, storage planning, prep zones, and flow upgrades.</p>
+                                <a class="arrow-link" href="kitchen-islands-layout-upgrades.html"
+                                    aria-label="View Kitchen Islands and Layout Upgrades">
+                                    View
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" />
+                                        <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zones-materials section section--brown" id="zones" aria-labelledby="zones-title">
+            <div class="container-wide">
+                <div class="zones-materials__grid">
+                    <article class="kitchen-zones">
+                        <div class="section-heading">
+                            <p class="section-kicker">Kitchen zones</p>
+                            <h2 id="zones-title">Explore Key Kitchen Zones</h2>
+                            <p>Hover over each zone to see key areas that shape a kitchen remodeling project.</p>
+                        </div>
+
+                        <div class="kitchen-zones__visual photo-frame">
+                            <img src="assets/images/kitchen-zones.jpg"
+                                alt="Modern kitchen with labeled remodeling zones" />
+
+                            <button class="zone-dot zone-dot--cabinets" type="button" data-zone-label>
+                                <span>Cabinets</span>
+                            </button>
+                            <button class="zone-dot zone-dot--countertop" type="button" data-zone-label>
+                                <span>Countertop</span>
+                            </button>
+                            <button class="zone-dot zone-dot--sink" type="button" data-zone-label>
+                                <span>Sink</span>
+                            </button>
+                            <button class="zone-dot zone-dot--lighting" type="button" data-zone-label>
+                                <span>Lighting</span>
+                            </button>
+                            <button class="zone-dot zone-dot--backsplash" type="button" data-zone-label>
+                                <span>Backsplash</span>
+                            </button>
+                            <button class="zone-dot zone-dot--island" type="button" data-zone-label>
+                                <span>Island</span>
+                            </button>
+                        </div>
+
+                        <div class="kitchen-zones__mobile-list" aria-label="Kitchen zone labels">
+                            <span>Cabinets</span>
+                            <span>Countertop</span>
+                            <span>Sink</span>
+                            <span>Lighting</span>
+                            <span>Backsplash</span>
+                            <span>Island</span>
+                        </div>
+                    </article>
+
+                    <article class="material-board" id="materials" aria-labelledby="materials-title">
+                        <div class="section-heading">
+                            <p class="section-kicker">Material match board</p>
+                            <h2 id="materials-title">Compare Finishes Before Requesting Quotes</h2>
+                            <p>Review common surface and finish directions before connecting with provider options.</p>
+                        </div>
+
+                        <div class="material-board__grid">
+                            <a class="material-tile material-tile--large shine-panel"
+                                href="countertops-stone-surfaces.html">
+                                <img src="assets/images/quartz-texture.jpg" alt="Quartz kitchen material texture" />
+                                <span>Quartz</span>
+                            </a>
+
+                            <a class="material-tile shine-panel" href="countertops-stone-surfaces.html">
+                                <img src="assets/images/natural-stone-texture.jpg"
+                                    alt="Natural stone kitchen material texture" />
+                                <span>Natural Stone</span>
+                            </a>
+
+                            <a class="material-tile shine-panel" href="custom-cabinets-refacing.html">
+                                <img src="assets/images/warm-wood-texture.jpg" alt="Warm wood material texture" />
+                                <span>Warm Wood</span>
+                            </a>
+
+                            <a class="material-tile shine-panel" href="custom-cabinets-refacing.html">
+                                <img src="assets/images/matte-cabinets.jpg" alt="Matte cabinet finish detail" />
+                                <span>Matte Cabinets</span>
+                            </a>
+
+                            <a class="material-tile material-tile--wide shine-panel" href="backsplash-tile-work.html">
+                                <img src="assets/images/tile-backsplash.jpg" alt="Tile backsplash material detail" />
+                                <span>Tile Backsplash</span>
+                            </a>
+
+                            <a class="material-tile shine-panel" href="lighting-fixtures-finishing.html">
+                                <img src="assets/images/brass-fixtures.jpg" alt="Brass kitchen fixture detail" />
+                                <span>Brass Fixtures</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="provider-path section section--light" id="provider-path" aria-labelledby="provider-path-title">
+            <div class="container">
+                <div class="section-heading section-heading--center">
+                    <p class="section-kicker">Provider fit path</p>
+                    <h2 id="provider-path-title">A Clearer Way to Compare Kitchen Provider Options</h2>
+                    <p>
+                        KITCHPRO helps organize project details, service categories, quote needs, and local provider
+                        options without performing remodeling work directly.
+                    </p>
+                </div>
+
+                <div class="provider-path__line" aria-label="KITCHPRO comparison process">
+                    <article class="provider-step">
+                        <span class="provider-step__number">01</span>
+                        <h3>Project details</h3>
+                        <p>Share the type of kitchen update, location, and scope direction.</p>
+                    </article>
+
+                    <article class="provider-step">
+                        <span class="provider-step__number">02</span>
+                        <h3>Service category</h3>
+                        <p>Match your request to relevant kitchen remodeling service categories.</p>
+                    </article>
+
+                    <article class="provider-step">
+                        <span class="provider-step__number">03</span>
+                        <h3>Quote needs</h3>
+                        <p>Compare materials, timeline expectations, and provider questions.</p>
+                    </article>
+
+                    <article class="provider-step">
+                        <span class="provider-step__number">04</span>
+                        <h3>Local options</h3>
+                        <p>Explore provider paths suited to the project and service area.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-note section section--compact section--dark" aria-labelledby="trust-note-title">
+            <div class="container">
+                <div class="trust-note__panel">
+                    <div class="trust-note__mark" aria-hidden="true"></div>
+                    <div>
+                        <p class="section-kicker">Independent platform</p>
+                        <h2 id="trust-note-title">KITCHPRO is a comparison platform, not a remodeling contractor.</h2>
+                        <p>
+                            We help homeowners explore kitchen remodeling provider options and quote paths.
+                            We do not perform remodeling work directly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta section section--dark" id="contact-cta" aria-labelledby="home-final-cta-title">
+            <div class="container-wide">
+                <div class="final-cta__card shine-panel">
+                    <img src="assets/images/cta-kitchen.jpg"
+                        alt="Premium kitchen interior with warm lighting and stone island" />
+
+                    <div class="final-cta__content">
+                        <p class="section-kicker">Ready to compare?</p>
+                        <h2 id="home-final-cta-title">Request Kitchen Remodeling Quote Options</h2>
+                        <p>
+                            Compare service categories, project scope, and local provider options before choosing a
+                            kitchen remodeling path.
+                        </p>
+                    </div>
+
+                    <div class="final-cta__actions">
+                        <a class="btn btn--primary" href="contact.html#contact-form">
+                            <span data-cta-text="contact">Request Quote Options</span>
+                            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 12H19" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" />
+                                <path d="M13 6L19 12L13 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+
+                        <a class="btn btn--secondary" href="services.html">
+                            <span data-cta-text="services">Explore Kitchen Services</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__top">
+            <div class="container-wide">
+                <div class="site-footer__grid">
+                    <div class="footer__brand">
+                        <a class="logo logo--large" href="index.html" aria-label="KITCHPRO home">
+                            <svg class="logo__icon" width="220" height="220" viewBox="0 0 220 220" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="kpStoneFooter" x1="46" y1="112" x2="174" y2="112"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#F6EBDD" />
+                                        <stop offset="48%" stop-color="#DCC7AD" />
+                                        <stop offset="100%" stop-color="#BEA180" />
+                                    </linearGradient>
+                                    <linearGradient id="kpCopperFooter" x1="92" y1="48" x2="144" y2="106"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#FFB979" />
+                                        <stop offset="45%" stop-color="#E87525" />
+                                        <stop offset="100%" stop-color="#B94E13" />
+                                    </linearGradient>
+                                    <linearGradient id="kpShadowLineFooter" x1="60" y1="140" x2="160" y2="148"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#2A211C" />
+                                        <stop offset="100%" stop-color="#15110E" />
+                                    </linearGradient>
+                                    <filter id="kpSoftShadowFooter" x="34" y="34" width="152" height="126"
+                                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#15110E"
+                                            flood-opacity="0.25" />
+                                    </filter>
+                                    <clipPath id="kpSlabClipFooter">
+                                        <rect x="46" y="96" width="128" height="28" rx="10" />
+                                    </clipPath>
+                                </defs>
+                                <g filter="url(#kpSoftShadowFooter)">
+                                    <path d="M100 97V72C100 61.5066 108.507 53 119 53C129.493 53 138 61.5066 138 72V82"
+                                        stroke="url(#kpCopperFooter)" stroke-width="8" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M138 82H126" stroke="url(#kpCopperFooter)" stroke-width="8"
+                                        stroke-linecap="round" />
+                                    <path d="M91 78H106" stroke="url(#kpCopperFooter)" stroke-width="5"
+                                        stroke-linecap="round" />
+                                    <rect x="46" y="96" width="128" height="28" rx="10" fill="url(#kpStoneFooter)"
+                                        stroke="#2A211C" stroke-width="3" />
+                                    <g clip-path="url(#kpSlabClipFooter)">
+                                        <path d="M58 109C71 104 82 113 96 108C108 104 122 103 136 108" stroke="#7E634F"
+                                            stroke-opacity="0.30" stroke-width="2.4" stroke-linecap="round" />
+                                        <path d="M92 99C101 104 111 104 121 101" stroke="#FFFFFF" stroke-opacity="0.38"
+                                            stroke-width="2" stroke-linecap="round" />
+                                        <path d="M126 118C138 113 147 117 160 112" stroke="#8B705A"
+                                            stroke-opacity="0.24" stroke-width="2" stroke-linecap="round" />
+                                    </g>
+                                    <path d="M58 102H102" stroke="#FFFFFF" stroke-opacity="0.42" stroke-width="2.8"
+                                        stroke-linecap="round" />
+                                    <path d="M64 141H156" stroke="url(#kpShadowLineFooter)" stroke-width="6"
+                                        stroke-linecap="round" />
+                                </g>
+                            </svg>
+
+                            <span class="logo__word" aria-hidden="true">
+                                <span>KITCH</span><span>PRO</span>
+                            </span>
+                        </a>
+
+                        <p data-footer-description>
+                            KITCHPRO is an independent kitchen remodeling provider comparison platform helping
+                            homeowners explore local provider options, service categories, and quote paths.
+                        </p>
+
+                        <div class="footer__meta">
+                            <span><strong>Company:</strong> <span data-company-name>KITCHPRO</span></span>
+                            <span><strong>Company ID:</strong> <span data-company-id>KTP-KR-4827</span></span>
+                            <span><strong>Address:</strong> <span data-address>1846 Westlake Kitchen Avenue, Austin, TX
+                                    78701, USA</span></span>
+                            <span><strong>Service area:</strong> <span data-service-area>USA kitchen remodeling provider
+                                    comparison platform</span></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="footer__title">Navigation</h2>
+                        <ul class="footer__list">
+                            <li><a class="footer__link" href="index.html" data-nav-link>Home</a></li>
+                            <li><a class="footer__link" href="services.html" data-nav-link>Services</a></li>
+                            <li><a class="footer__link" href="about.html" data-nav-link>About</a></li>
+                            <li><a class="footer__link" href="contact.html" data-nav-link>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="footer__title">Services</h2>
+                        <ul class="footer__list" data-footer-service-menu></ul>
+                    </div>
+
+                    <div>
+                        <h2 class="footer__title">Contact</h2>
+                        <ul class="footer__list">
+                            <li><a class="footer__link" href="tel:+18885550148" data-phone-link data-phone-display>(888)
+                                    555-0148</a></li>
+                            <li><a class="footer__link" href="mailto:hello@kitchprocompare.com" data-email-link
+                                    data-email>hello@kitchprocompare.com</a></li>
+                            <li><span class="footer__link" data-support-hours>Mon–Fri, 8:00 AM–7:00 PM</span></li>
+                            <li><a class="footer__link" href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a class="footer__link" href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a class="footer__link" href="terms-of-service.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="site-footer__disclaimer" data-footer-disclaimer>
+                    Disclaimer: This site is a free service to assist homeowners in connecting with local service
+                    providers. All contractors/providers are independent and this site does not warrant or guarantee any
+                    work performed. It is the responsibility of the homeowner to verify that the hired contractor
+                    furnishes the necessary license and insurance required for the work being performed. All persons
+                    depicted in a photo or video are actors or models and not contractors listed on this site.
+                </p>
+            </div>
+        </div>
+
+        <div class="site-footer__bottom">
+            <div class="container-wide">
+                <div class="site-footer__bottom-inner">
+                    <span>© <span data-current-year></span> <span data-company-name>KITCHPRO</span>. All rights
+                        reserved.</span>
+                    <span><span data-company-id>KTP-KR-4827</span> · <span data-address>1846 Westlake Kitchen Avenue,
+                            Austin, TX 78701, USA</span></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

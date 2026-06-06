@@ -1,0 +1,633 @@
+/* =========================
+   SERVICE PAGE HERO
+========================= */
+
+.service-hero {
+    background:
+        linear-gradient(90deg,
+            rgba(21, 17, 14, 0.91) 0%,
+            rgba(21, 17, 14, 0.72) 42%,
+            rgba(21, 17, 14, 0.2) 100%),
+        var(--service-hero-image, url("../assets/images/full-kitchen-remodeling.jpg")) center / cover no-repeat;
+}
+
+.service-hero .hero__content {
+    max-width: 660px;
+}
+
+.service-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.service-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 8px 13px;
+    border: 1px solid rgba(232, 216, 194, 0.24);
+    border-radius: var(--radius-pill);
+    color: var(--color-pumpkin-soft);
+    background: rgba(21, 17, 14, 0.34);
+    font-size: 0.86rem;
+    font-weight: 800;
+}
+
+/* =========================
+   COMPARE SPLIT
+========================= */
+
+.compare-section {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(232, 117, 37, 0.08), transparent 27rem),
+        var(--color-light);
+}
+
+.compare-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(28px, 5vw, 66px);
+    align-items: center;
+}
+
+.compare-photo {
+    min-height: 520px;
+    border-radius: 34px;
+    transform: rotate(-1.7deg);
+}
+
+.compare-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(21, 17, 14, 0.05), rgba(21, 17, 14, 0.46));
+    pointer-events: none;
+}
+
+.compare-content {
+    padding: clamp(26px, 4vw, 48px);
+    border: 1px solid rgba(42, 33, 28, 0.14);
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.28)),
+        var(--color-white-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.compare-content h2 {
+    color: var(--color-text);
+    font-size: clamp(2rem, 4vw, 3.45rem);
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+}
+
+.compare-content>p {
+    margin-top: 16px;
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+}
+
+.compare-points {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.compare-point {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 14px 0;
+    border-top: 1px solid rgba(42, 33, 28, 0.12);
+}
+
+.compare-point span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-pill);
+    color: var(--color-text-light);
+    background: var(--color-pumpkin);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.compare-point h3 {
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.compare-point p {
+    margin-top: 4px;
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+}
+
+/* =========================
+   SCOPE ROWS
+========================= */
+
+.scope-factor-section {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(232, 117, 37, 0.12), transparent 26rem),
+        linear-gradient(180deg, #15110e 0%, #100d0b 100%);
+}
+
+.scope-factor-list {
+    display: grid;
+    margin-top: 36px;
+    border-top: 1px solid rgba(232, 216, 194, 0.16);
+    border-bottom: 1px solid rgba(232, 216, 194, 0.16);
+}
+
+.scope-factor-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 90px minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 24px;
+    align-items: center;
+    min-height: 128px;
+    padding: 24px 0;
+    color: var(--color-text-light);
+    transition:
+        padding var(--transition-base),
+        background var(--transition-base);
+}
+
+.scope-factor-row+.scope-factor-row {
+    border-top: 1px solid rgba(232, 216, 194, 0.14);
+}
+
+.scope-factor-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    height: 2px;
+    width: 0;
+    background: var(--color-pumpkin);
+    transition: width var(--transition-slow);
+}
+
+.scope-factor-row:hover {
+    padding-left: 18px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.scope-factor-row:hover::before {
+    width: 100%;
+}
+
+.scope-factor-row__number {
+    color: rgba(232, 216, 194, 0.42);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    transition: color var(--transition-base);
+}
+
+.scope-factor-row:hover .scope-factor-row__number {
+    color: var(--color-pumpkin-light);
+}
+
+.scope-factor-row h3 {
+    color: var(--color-text-light);
+    font-size: clamp(1.18rem, 2vw, 1.7rem);
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+}
+
+.scope-factor-row p {
+    color: rgba(248, 241, 232, 0.72);
+    font-size: 0.97rem;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-section {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(232, 117, 37, 0.08), transparent 24rem),
+        var(--color-light);
+}
+
+.timeline-line {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 42px;
+    border-top: 1px solid rgba(42, 33, 28, 0.16);
+    border-bottom: 1px solid rgba(42, 33, 28, 0.16);
+}
+
+.timeline-line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 2px;
+    transform: scaleX(0.18);
+    transform-origin: left;
+    background: linear-gradient(90deg, var(--color-pumpkin-light), var(--color-pumpkin-dark));
+    transition: transform 900ms ease;
+}
+
+.timeline-line:hover::before,
+.timeline-line.is-in-view::before {
+    transform: scaleX(1);
+}
+
+.timeline-step {
+    position: relative;
+    min-height: 245px;
+    padding: 34px 26px;
+    transition:
+        background var(--transition-base),
+        transform var(--transition-base);
+}
+
+.timeline-step+.timeline-step {
+    border-left: 1px solid rgba(42, 33, 28, 0.14);
+}
+
+.timeline-step::before {
+    content: "";
+    position: absolute;
+    left: 26px;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    border: 3px solid var(--color-light);
+    border-radius: 50%;
+    background: var(--color-pumpkin);
+    box-shadow: 0 0 0 1px rgba(232, 117, 37, 0.28);
+}
+
+.timeline-step:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.48);
+}
+
+.timeline-step span {
+    color: var(--color-pumpkin-dark);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.timeline-step h3 {
+    margin-top: 18px;
+    color: var(--color-text);
+    font-size: 1.28rem;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+}
+
+.timeline-step p {
+    margin-top: 12px;
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+}
+
+/* =========================
+   QUOTE TABLE
+========================= */
+
+.service-table-section {
+    background:
+        radial-gradient(circle at 88% 14%, rgba(232, 117, 37, 0.08), transparent 22rem),
+        var(--color-white-soft);
+}
+
+/* =========================
+   RELATED SERVICES
+========================= */
+
+.related-section {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(232, 117, 37, 0.13), transparent 27rem),
+        linear-gradient(180deg, #15110e 0%, #100d0b 100%);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.related-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(232, 216, 194, 0.16);
+    border-radius: 24px;
+    color: var(--color-text-light);
+    background:
+        linear-gradient(135deg, rgba(52, 41, 35, 0.72), rgba(21, 17, 14, 0.84));
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.24);
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232, 117, 37, 0.42);
+    box-shadow: 0 30px 72px rgba(0, 0, 0, 0.32);
+}
+
+.related-card__photo {
+    position: relative;
+    height: 170px;
+    overflow: hidden;
+}
+
+.related-card__photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(21, 17, 14, 0.04), rgba(21, 17, 14, 0.42));
+    pointer-events: none;
+}
+
+.related-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 760ms ease;
+}
+
+.related-card:hover .related-card__photo img {
+    transform: scale(1.06);
+}
+
+.related-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+}
+
+.related-card__number {
+    color: var(--color-pumpkin-light);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.related-card h3 {
+    margin-top: 12px;
+    color: var(--color-text-light);
+    font-size: 1.35rem;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+}
+
+.related-card p {
+    margin-top: 10px;
+    color: rgba(248, 241, 232, 0.72);
+    font-size: 0.94rem;
+}
+
+.related-card .arrow-link {
+    margin-top: auto;
+    padding-top: 22px;
+}
+
+/* =========================
+   JS REVEAL
+========================= */
+
+.service-page-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 620ms ease,
+        transform 620ms ease;
+}
+
+.service-page-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1080px) {
+    .compare-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-photo {
+        min-height: 420px;
+        transform: none;
+    }
+
+    .scope-factor-row {
+        grid-template-columns: 70px 1fr;
+        gap: 16px;
+    }
+
+    .scope-factor-row p {
+        grid-column: 2;
+    }
+
+    .timeline-line {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .timeline-step:nth-child(3) {
+        border-left: 0;
+    }
+
+    .timeline-step:nth-child(n + 3) {
+        border-top: 1px solid rgba(42, 33, 28, 0.14);
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .related-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: minmax(220px, 0.42fr) minmax(0, 0.58fr);
+    }
+
+    .related-card__photo {
+        height: 100%;
+        min-height: 230px;
+    }
+}
+
+@media (max-width: 760px) {
+    .service-hero {
+        background:
+            linear-gradient(90deg,
+                rgba(21, 17, 14, 0.94) 0%,
+                rgba(21, 17, 14, 0.84) 58%,
+                rgba(21, 17, 14, 0.54) 100%),
+            var(--service-hero-image, url("../assets/images/full-kitchen-remodeling.jpg")) center / cover no-repeat;
+    }
+
+    .service-hero__meta {
+        gap: 8px;
+    }
+
+    .service-hero__chip {
+        min-height: 34px;
+        font-size: 0.82rem;
+    }
+
+    .compare-content {
+        padding: 24px 20px;
+        border-radius: 24px;
+    }
+
+    .compare-photo {
+        min-height: 330px;
+        border-radius: 24px;
+    }
+
+    .scope-factor-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        min-height: auto;
+        padding: 24px 0;
+    }
+
+    .scope-factor-row:hover {
+        padding-left: 12px;
+    }
+
+    .scope-factor-row p {
+        grid-column: auto;
+    }
+
+    .scope-factor-row__number {
+        font-size: 2rem;
+    }
+
+    .timeline-line {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-step,
+    .timeline-step+.timeline-step,
+    .timeline-step:nth-child(3),
+    .timeline-step:nth-child(n + 3) {
+        min-height: auto;
+        padding: 28px 22px;
+        border-left: 0;
+        border-top: 1px solid rgba(42, 33, 28, 0.14);
+    }
+
+    .timeline-step:first-child {
+        border-top: 0;
+    }
+
+    .timeline-step::before {
+        left: 22px;
+    }
+
+    .related-card {
+        display: flex;
+    }
+
+    .related-card__photo {
+        min-height: 210px;
+    }
+}
+
+@media (max-width: 430px) {
+    .compare-photo {
+        min-height: 290px;
+    }
+
+    .related-card__photo {
+        min-height: 180px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-page-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.related-card.is-focused {
+    transform: translateY(-5px);
+    border-color: rgba(232, 117, 37, 0.42);
+    box-shadow: 0 30px 72px rgba(0, 0, 0, 0.32);
+}
+
+.related-card.is-focused .related-card__photo img {
+    transform: scale(1.06);
+}
+
+.scope-factor-row.is-focused {
+    padding-left: 18px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.scope-factor-row.is-focused::before {
+    width: 100%;
+}
+
+.scope-factor-row.is-focused .scope-factor-row__number {
+    color: var(--color-pumpkin-light);
+}
+
+/* =========================
+   SERVICE HERO IMAGES
+========================= */
+
+.service-hero--full {
+    --service-hero-image: url("../assets/images/full-kitchen-remodeling.jpg");
+}
+
+.service-hero--cabinets {
+    --service-hero-image: url("../assets/images/custom-cabinets-refacing.jpg");
+}
+
+.service-hero--countertops {
+    --service-hero-image: url("../assets/images/countertops-stone-surfaces.jpg");
+}
+
+.service-hero--backsplash {
+    --service-hero-image: url("../assets/images/backsplash-tile-work.jpg");
+}
+
+.service-hero--islands {
+    --service-hero-image: url("../assets/images/kitchen-islands-layout-upgrades.jpg");
+}
+
+.service-hero--lighting {
+    --service-hero-image: url("../assets/images/lighting-fixtures-finishing.jpg");
+}
