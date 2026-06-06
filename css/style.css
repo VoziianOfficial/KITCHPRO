@@ -1817,3 +1817,15 @@ h6 {
         transition-duration: 0.001ms !important;
     }
 }
+
+.form-message.is-success {
+    color: #2f6f3a;
+}
+
+.form-message.is-error {
+    color: #b94e13;
+}
+
+.site-header .logo .logo__word {
+    white-space: nowrap;
+}

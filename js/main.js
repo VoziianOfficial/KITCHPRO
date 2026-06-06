@@ -18,18 +18,20 @@
         cookieBanner: '[data-cookie-banner]'
     };
 
-    const STORAGE_KEYS = {
-        cookieChoice: 'kitchpro_cookie_choice'
-    };
-
     const body = document.body;
 
     function safeText(value) {
         return value === undefined || value === null ? '' : String(value);
     }
 
+    function getCookieStorageKey() {
+        return CONFIG.cookies?.storageKey || 'kitchpro_cookie_consent';
+    }
+
     function getCleanPath(pathname) {
-        const path = pathname.split('/').pop();
+        const clean = pathname.split('?')[0].split('#')[0];
+        const path = clean.split('/').pop();
+
         return path || 'index.html';
     }
 
@@ -39,11 +41,13 @@
 
     function getTelHref() {
         const rawPhone = CONFIG.contact?.phoneRaw || '';
+
         return rawPhone ? `tel:${rawPhone}` : '#';
     }
 
     function getMailHref() {
         const email = CONFIG.contact?.email || '';
+
         return email ? `mailto:${email}` : '#';
     }
 
@@ -74,22 +78,29 @@
         setText('[data-footer-disclaimer]', CONFIG.footer?.disclaimer);
 
         setText('[data-current-year]', new Date().getFullYear());
+        setText('[data-legal-updated]', CONFIG.legal?.lastUpdated);
 
         setHref('[data-phone-link]', getTelHref());
         setHref('[data-email-link]', getMailHref());
 
         document.querySelectorAll('[data-cta-text]').forEach((element) => {
             const key = element.getAttribute('data-cta-text');
-            element.textContent = safeText(CONFIG.cta?.[key]);
+            const value = CONFIG.cta?.[key];
+
+            if (value) {
+                element.textContent = safeText(value);
+            }
         });
     }
 
     function createServiceLink(service, className) {
         const link = document.createElement('a');
+
         link.href = service.url;
         link.className = className;
         link.textContent = service.title;
         link.setAttribute('data-nav-link', '');
+
         return link;
     }
 
@@ -100,8 +111,7 @@
             menu.innerHTML = '';
 
             services.forEach((service) => {
-                const link = createServiceLink(service, 'dropdown__link');
-                menu.appendChild(link);
+                menu.appendChild(createServiceLink(service, 'dropdown__link'));
             });
         });
 
@@ -109,8 +119,7 @@
             menu.innerHTML = '';
 
             services.forEach((service) => {
-                const link = createServiceLink(service, 'mobile-menu__service-link');
-                menu.appendChild(link);
+                menu.appendChild(createServiceLink(service, 'mobile-menu__service-link'));
             });
         });
 
@@ -206,6 +215,7 @@
 
             if (target === menu) {
                 closeMobileMenu(toggle, menu);
+                return;
             }
 
             if (target instanceof HTMLElement && target.closest('a')) {
@@ -254,6 +264,13 @@
             }, 140);
         };
 
+        const closeDropdownImmediately = () => {
+            window.clearTimeout(closeTimer);
+            dropdown.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            panel.setAttribute('hidden', '');
+        };
+
         dropdown.addEventListener('mouseenter', openDropdown);
         dropdown.addEventListener('mouseleave', closeDropdown);
 
@@ -270,24 +287,30 @@
                 openDropdown();
 
                 const firstLink = panel.querySelector('a');
+
                 if (firstLink) firstLink.focus();
             }
 
             if (event.key === 'Escape') {
-                dropdown.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-                panel.setAttribute('hidden', '');
+                closeDropdownImmediately();
                 toggle.focus();
             }
         });
 
         panel.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
-                dropdown.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-                panel.setAttribute('hidden', '');
+                closeDropdownImmediately();
                 toggle.focus();
             }
+        });
+
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+
+            if (!(target instanceof HTMLElement)) return;
+            if (dropdown.contains(target)) return;
+
+            closeDropdownImmediately();
         });
     }
 
@@ -304,11 +327,16 @@
             if (linkPath === currentPath) {
                 link.classList.add('is-active');
                 link.setAttribute('aria-current', 'page');
+            } else {
+                link.classList.remove('is-active');
+                link.removeAttribute('aria-current');
             }
         });
     }
 
     function initSmoothAnchorScroll() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         document.querySelectorAll('a[href^="#"]').forEach((link) => {
             link.addEventListener('click', (event) => {
                 const targetId = link.getAttribute('href');
@@ -322,7 +350,7 @@
                 event.preventDefault();
 
                 target.scrollIntoView({
-                    behavior: 'smooth',
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
                     block: 'start'
                 });
             });
@@ -330,7 +358,9 @@
     }
 
     function createCookieBanner() {
-        if (localStorage.getItem(STORAGE_KEYS.cookieChoice)) return;
+        const storageKey = getCookieStorageKey();
+
+        if (localStorage.getItem(storageKey)) return;
         if (document.querySelector(SELECTORS.cookieBanner)) return;
 
         const banner = document.createElement('section');
@@ -339,25 +369,36 @@
         banner.setAttribute('data-cookie-banner', '');
         banner.setAttribute('aria-label', 'Cookie consent');
 
+        const bannerText =
+            CONFIG.cookies?.bannerText ||
+            'KITCHPRO uses cookies to improve site functionality and remember preferences.';
+
+        const acceptText = CONFIG.cookies?.acceptText || 'Accept';
+        const declineText = CONFIG.cookies?.declineText || 'Decline';
+        const policyText = CONFIG.cookies?.policyText || 'Cookie Policy';
+        const cookiePage = CONFIG.pages?.cookies || 'cookie-policy.html';
+        const privacyPage = CONFIG.pages?.privacy || 'privacy-policy.html';
+        const termsPage = CONFIG.pages?.terms || 'terms-of-service.html';
+
         banner.innerHTML = `
             <div class="cookie-banner__content">
                 <div class="cookie-banner__text">
                     <strong>Cookie preferences</strong>
                     <p>
-                        We use cookies to improve site experience and remember your preferences.
+                        ${bannerText}
                         Review our
-                        <a href="privacy-policy.html">Privacy Policy</a>,
-                        <a href="cookie-policy.html">Cookie Policy</a>,
-                        and <a href="terms-of-service.html">Terms</a>.
+                        <a href="${privacyPage}">Privacy Policy</a>,
+                        <a href="${cookiePage}">${policyText}</a>,
+                        and <a href="${termsPage}">Terms</a>.
                     </p>
                 </div>
 
                 <div class="cookie-banner__actions">
                     <button class="btn btn--secondary btn--small" type="button" data-cookie-decline>
-                        Decline
+                        ${declineText}
                     </button>
                     <button class="btn btn--primary btn--small" type="button" data-cookie-accept>
-                        Accept
+                        ${acceptText}
                     </button>
                 </div>
             </div>
@@ -377,11 +418,12 @@
 
         if (!banner) return;
 
+        const storageKey = getCookieStorageKey();
         const accept = banner.querySelector('[data-cookie-accept]');
         const decline = banner.querySelector('[data-cookie-decline]');
 
         const saveChoice = (choice) => {
-            localStorage.setItem(STORAGE_KEYS.cookieChoice, choice);
+            localStorage.setItem(storageKey, choice);
             banner.classList.remove('is-visible');
 
             window.setTimeout(() => {
@@ -390,25 +432,60 @@
         };
 
         if (accept) {
-            accept.addEventListener('click', () => saveChoice('accepted'));
+            accept.addEventListener('click', () => {
+                saveChoice(CONFIG.cookies?.acceptedValue || 'accepted');
+            });
         }
 
         if (decline) {
-            decline.addEventListener('click', () => saveChoice('declined'));
+            decline.addEventListener('click', () => {
+                saveChoice(CONFIG.cookies?.declinedValue || 'declined');
+            });
         }
     }
 
     function initContactForms() {
         document.querySelectorAll('[data-contact-form]').forEach((form) => {
             const message = form.querySelector('[data-form-message]');
+            const consent = form.querySelector('input[name="consent"]');
 
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
 
                 if (message) {
+                    message.classList.remove('is-error', 'is-success', 'is-visible');
+                    message.textContent = '';
+                }
+
+                if (!form.checkValidity()) {
+                    if (message) {
+                        message.textContent =
+                            CONFIG.forms?.errorMessage ||
+                            'Please complete the required fields before submitting your request.';
+                        message.classList.add('is-visible', 'is-error');
+                    }
+
+                    form.reportValidity();
+                    return;
+                }
+
+                if (consent && !consent.checked) {
+                    if (message) {
+                        message.textContent =
+                            CONFIG.forms?.requiredConsentMessage ||
+                            'Please confirm consent before submitting your request.';
+                        message.classList.add('is-visible', 'is-error');
+                    }
+
+                    consent.focus();
+                    return;
+                }
+
+                if (message) {
                     message.textContent =
-                        'Thanks. Your request was prepared successfully. A local provider comparison path can now be reviewed.';
-                    message.classList.add('is-visible');
+                        CONFIG.forms?.successMessage ||
+                        'Thank you. Your request has been prepared for provider comparison options.';
+                    message.classList.add('is-visible', 'is-success');
                 }
 
                 form.reset();
@@ -436,6 +513,21 @@
         });
     }
 
+    function initServiceContactLinks() {
+        const servicePage = document.querySelector('[data-service-page]');
+        const serviceSlug = servicePage?.getAttribute('data-service-page');
+
+        if (!serviceSlug) return;
+
+        document.querySelectorAll('[data-service-contact-link]').forEach((link) => {
+            const baseHref = link.getAttribute('href') || 'contact.html#contact-form';
+            const cleanHref = baseHref.split('?')[0].split('#')[0] || 'contact.html';
+            const hash = baseHref.includes('#') ? `#${baseHref.split('#')[1]}` : '#contact-form';
+
+            link.setAttribute('href', `${cleanHref}?service=${encodeURIComponent(serviceSlug)}${hash}`);
+        });
+    }
+
     function exposeHelpers() {
         window.KITCHPRO = {
             config: CONFIG,
@@ -457,6 +549,7 @@
         initCookieBanner();
         initContactForms();
         initKitchenZoneLabels();
+        initServiceContactLinks();
     }
 
     if (document.readyState === 'loading') {
