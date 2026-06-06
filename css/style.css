@@ -2085,3 +2085,113 @@ h6 {
         font-size: 1.02rem;
     }
 }
+
+/* =========================
+   MOBILE MENU LOGO SIZE
+========================= */
+
+.mobile-menu__top .logo {
+    gap: 12px;
+    align-items: center;
+}
+
+.mobile-menu__top .logo__icon {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    transform: translateY(4px);
+    filter:
+        drop-shadow(0 10px 18px rgba(232, 117, 37, 0.26)) drop-shadow(0 3px 10px rgba(0, 0, 0, 0.38));
+}
+
+.mobile-menu__top .logo__word {
+    font-size: 1.65rem;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    transform: translateY(1px);
+}
+
+@media (max-width: 430px) {
+    .mobile-menu__top .logo {
+        gap: 8px;
+    }
+
+    .mobile-menu__top .logo__icon {
+        width: 56px;
+        height: 56px;
+        flex-basis: 56px;
+        transform: translateY(4px);
+    }
+
+    .mobile-menu__top .logo__word {
+        font-size: 1.38rem;
+    }
+}
+
+/* =========================
+   MOBILE MENU WITH SHARED HEADER
+========================= */
+
+body.menu-open .site-header {
+    z-index: 1300;
+}
+
+.mobile-menu {
+    inset: 0;
+    z-index: 1150;
+    padding: 104px 16px 16px;
+    background: rgba(8, 6, 5, 0.72);
+}
+
+.mobile-menu__panel {
+    width: min(100%, 560px);
+    height: 100%;
+    max-height: none;
+    margin-left: auto;
+    padding: 24px 20px 20px;
+}
+
+.mobile-menu__top,
+.mobile-menu__close {
+    display: none !important;
+}
+
+/* burger -> close */
+.mobile-toggle[aria-expanded="true"] {
+    border-color: rgba(232, 117, 37, 0.78);
+    background: rgba(232, 117, 37, 0.14);
+}
+
+.mobile-toggle[aria-expanded="true"] span {
+    background: transparent;
+}
+
+.mobile-toggle[aria-expanded="true"] span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.mobile-toggle[aria-expanded="true"] span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 760px) {
+    .mobile-menu {
+        padding: 86px 10px 10px;
+    }
+
+    .mobile-menu__panel {
+        padding: 22px 16px 16px;
+    }
+}
+
+@media (max-width: 430px) {
+    .mobile-menu {
+        padding-top: 80px;
+    }
+
+    .mobile-menu__panel {
+        padding: 20px 16px 16px;
+    }
+}
