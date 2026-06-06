@@ -1913,3 +1913,62 @@ h6 {
         min-height: 60px;
     }
 }
+
+/* =========================
+   FINAL FOOTER LOGO BALANCE
+========================= */
+
+.site-footer .logo--large {
+    gap: 1px;
+    align-items: center;
+}
+
+.site-footer .logo--large .logo__icon {
+    width: 78px;
+    height: 78px;
+    flex: 0 0 78px;
+    transform: translateY(6px);
+    filter:
+        drop-shadow(0 12px 22px rgba(232, 117, 37, 0.26)) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.38));
+}
+
+.site-footer .logo--large .logo__word {
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    transform: translateY(2px);
+}
+
+@media (max-width: 760px) {
+    .site-footer .logo--large {
+        gap: 12px;
+    }
+
+    .site-footer .logo--large .logo__icon {
+        width: 64px;
+        height: 64px;
+        flex-basis: 64px;
+        transform: translateY(5px);
+    }
+
+    .site-footer .logo--large .logo__word {
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .site-footer .logo--large {
+        gap: 1px;
+    }
+
+    .site-footer .logo--large .logo__icon {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+        transform: translateY(4px);
+    }
+
+    .site-footer .logo--large .logo__word {
+        font-size: 1.45rem;
+    }
+}
