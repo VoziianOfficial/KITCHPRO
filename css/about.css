@@ -647,7 +647,6 @@
     content: "−";
     transform: rotate(180deg);
     color: var(--color-text-light);
-    background: var(--color-pumpkin);
 }
 
 .faq-item p {

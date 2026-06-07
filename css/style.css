@@ -2465,3 +2465,70 @@ body.menu-open .site-header {
     }
 }
 
+/* =========================
+   GLOBAL ACCORDION ICON CENTER FIX
+========================= */
+
+body details.faq-item>summary::after,
+body details.scope-strip>summary::after,
+body .faq-list details>summary::after,
+body .services-faq details>summary::after,
+body .contact-faq details>summary::after,
+body details[class*="faq"]>summary::after,
+body details[class*="accordion"]>summary::after {
+    content: "" !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 999px;
+    color: var(--color-pumpkin-dark);
+    border: 1px solid rgba(42, 33, 28, 0.14);
+    background-color: rgba(255, 255, 255, 0.68);
+    background-image:
+        linear-gradient(currentColor, currentColor),
+        linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:
+        13px 2px,
+        2px 13px;
+    transform: none !important;
+    font-size: 0;
+    line-height: 1;
+    transition:
+        color var(--transition-base),
+        border-color var(--transition-base),
+        background-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+body details.faq-item[open]>summary::after,
+body details.scope-strip[open]>summary::after,
+body .faq-list details[open]>summary::after,
+body .services-faq details[open]>summary::after,
+body .contact-faq details[open]>summary::after,
+body details[class*="faq"][open]>summary::after,
+body details[class*="accordion"][open]>summary::after {
+    content: "" !important;
+    color: var(--color-text-light);
+    border-color: var(--color-pumpkin);
+    background-color: var(--color-pumpkin);
+    background-image:
+        linear-gradient(currentColor, currentColor);
+    background-size: 13px 2px;
+    transform: none !important;
+}
+
+body details.faq-item:hover>summary::after,
+body details.scope-strip:hover>summary::after,
+body .faq-list details:hover>summary::after,
+body .services-faq details:hover>summary::after,
+body .contact-faq details:hover>summary::after,
+body details[class*="faq"]:hover>summary::after,
+body details[class*="accordion"]:hover>summary::after {
+    border-color: rgba(232, 117, 37, 0.42);
+    box-shadow: 0 8px 18px rgba(232, 117, 37, 0.14);
+}
