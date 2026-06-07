@@ -1036,3 +1036,165 @@
         line-height: 1.04;
     }
 }
+
+/* =========================
+   HOME SERVICES — FULL WIDTH HEADING
+========================= */
+
+.home-services__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 34px;
+}
+
+.home-services__heading {
+    position: relative;
+    top: auto;
+    margin-bottom: 0;
+    padding: 0 0 28px;
+    max-width: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 0.55fr) minmax(320px, 0.45fr);
+    align-items: end;
+    gap: clamp(24px, 5vw, 70px);
+    border-bottom: 1px solid rgba(232, 216, 194, 0.16);
+}
+
+.home-services__heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: min(240px, 42%);
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg,
+            var(--color-pumpkin),
+            rgba(232, 117, 37, 0));
+}
+
+.home-services__heading .section-kicker {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.home-services__heading h2 {
+    max-width: 760px;
+    font-size: clamp(2.35rem, 4.2vw, 4.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.home-services__heading .copper-line {
+    justify-self: end;
+    width: min(100%, 420px);
+    height: 1px;
+    margin: 0 0 14px;
+    background: linear-gradient(90deg,
+            rgba(232, 117, 37, 0),
+            rgba(232, 117, 37, 0.88),
+            rgba(232, 216, 194, 0.28));
+}
+
+.home-services__heading .copper-line::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-left: auto;
+    transform: translateY(-4.5px);
+    border-radius: 50%;
+    background: var(--color-pumpkin);
+    box-shadow:
+        0 0 0 7px rgba(232, 117, 37, 0.12),
+        0 0 24px rgba(232, 117, 37, 0.38);
+}
+
+.home-services__heading:hover .copper-line {
+    width: min(100%, 420px);
+}
+
+.featured-service-list {
+    width: 100%;
+    display: grid;
+    gap: 18px;
+}
+
+/* делаем карточки снизу чуть шире и ровнее */
+.featured-service-row {
+    min-height: 250px;
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, 0.86fr);
+}
+
+.featured-service-row--reverse {
+    grid-template-columns: minmax(320px, 0.86fr) minmax(320px, 1fr);
+}
+
+.featured-service-row__photo,
+.featured-service-row__content {
+    min-height: 250px;
+}
+
+@media (max-width: 900px) {
+    .home-services__heading {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-bottom: 24px;
+    }
+
+    .home-services__heading h2 {
+        max-width: 100%;
+        font-size: clamp(2rem, 7vw, 3.2rem);
+    }
+
+    .home-services__heading .copper-line {
+        justify-self: start;
+        width: min(100%, 260px);
+        margin-bottom: 0;
+    }
+
+    .home-services__heading:hover .copper-line {
+        width: min(100%, 260px);
+    }
+
+    .featured-service-row,
+    .featured-service-row--reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-service-row__photo,
+    .featured-service-row--reverse .featured-service-row__photo {
+        order: 1;
+        min-height: 250px;
+    }
+
+    .featured-service-row__content,
+    .featured-service-row--reverse .featured-service-row__content {
+        order: 2;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .home-services__layout {
+        gap: 26px;
+    }
+
+    .home-services__heading {
+        padding-bottom: 20px;
+    }
+
+    .home-services__heading .section-kicker {
+        font-size: 0.72rem;
+    }
+
+    .home-services__heading h2 {
+        font-size: clamp(1.85rem, 9vw, 2.65rem);
+    }
+
+    .featured-service-row__photo,
+    .featured-service-row--reverse .featured-service-row__photo {
+        min-height: 210px;
+    }
+}
