@@ -2631,3 +2631,192 @@ body details[class*="accordion"]:hover>summary::after {
         min-height: 46px;
     }
 }
+
+/* =========================
+   MOBILE STEP NUMBERS TOP RIGHT
+========================= */
+
+@media (max-width: 760px) {
+
+    /* common card positioning */
+    body .model-section .model-step,
+    body .provider-path .provider-step,
+    body .next-steps-section .next-step,
+    body .values-section .value-line {
+        position: relative;
+        padding-right: 78px;
+    }
+
+    /* ABOUT values numbers */
+    body .values-section .value-line>span {
+        position: absolute;
+        top: 22px;
+        right: 18px;
+        z-index: 2;
+        margin: 0;
+        color: rgba(232, 117, 37, 0.78);
+        font-size: 2.15rem;
+        line-height: 1;
+        letter-spacing: -0.075em;
+        pointer-events: none;
+    }
+
+    body .values-section .value-line:hover>span {
+        color: var(--color-pumpkin-dark);
+    }
+
+    /* ABOUT model numbers */
+    body .model-section .model-step>span {
+        position: absolute;
+        top: 24px;
+        right: 20px;
+        z-index: 2;
+        margin: 0;
+        color: rgba(232, 117, 37, 0.82);
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.075em;
+        text-transform: none;
+        pointer-events: none;
+    }
+
+    /* HOME provider path numbers */
+    body .provider-path .provider-step__number {
+        position: absolute;
+        top: 24px;
+        right: 20px;
+        z-index: 2;
+        margin: 0;
+        color: rgba(232, 117, 37, 0.78);
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.075em;
+        text-transform: none;
+        pointer-events: none;
+    }
+
+    /* CONTACT next steps numbers */
+    body .next-steps-section .next-step>span {
+        position: absolute;
+        top: 24px;
+        right: 20px;
+        z-index: 2;
+        margin: 0;
+        color: rgba(232, 117, 37, 0.78);
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.075em;
+        text-transform: none;
+        pointer-events: none;
+    }
+
+    /* text should not go under number */
+    body .model-section .model-step h3,
+    body .provider-path .provider-step h3,
+    body .next-steps-section .next-step h3,
+    body .values-section .value-line h3 {
+        max-width: calc(100% - 46px);
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 430px) {
+
+    body .model-section .model-step,
+    body .provider-path .provider-step,
+    body .next-steps-section .next-step,
+    body .values-section .value-line {
+        padding-right: 66px;
+    }
+
+    body .values-section .value-line>span,
+    body .model-section .model-step>span,
+    body .provider-path .provider-step__number,
+    body .next-steps-section .next-step>span {
+        top: 20px;
+        right: 16px;
+        font-size: 1.75rem;
+    }
+
+    body .model-section .model-step h3,
+    body .provider-path .provider-step h3,
+    body .next-steps-section .next-step h3,
+    body .values-section .value-line h3 {
+        max-width: calc(100% - 34px);
+    }
+}
+
+/* =========================
+   GLOBAL HERO TITLE TABLET/MOBILE CENTER FIX
+========================= */
+
+@media (max-width: 1100px) {
+    body .hero .hero__inner {
+        text-align: center;
+    }
+
+    body .hero .hero__content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
+        padding-left: 0 !important;
+        text-align: center;
+    }
+
+    body .hero .kicker,
+    body .hero .hero__text {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    body .hero .hero__title {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center;
+        font-size: clamp(2.55rem, 7vw, 4.35rem) !important;
+        line-height: 1.04 !important;
+        letter-spacing: -0.052em !important;
+        text-wrap: balance;
+    }
+
+    body .hero .hero__actions {
+        justify-content: center;
+    }
+
+    body .hero .hero__chips {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 760px) {
+    body .hero .hero__title {
+        font-size: clamp(2.1rem, 9.4vw, 3.05rem) !important;
+        line-height: 1.06 !important;
+        letter-spacing: -0.048em !important;
+    }
+
+    body .hero .hero__text {
+        max-width: 94%;
+    }
+
+    body .hero .hero__actions {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    body .hero .hero__title {
+        font-size: clamp(1.9rem, 9.8vw, 2.65rem) !important;
+        line-height: 1.07 !important;
+    }
+
+    body .hero .kicker {
+        text-align: center;
+    }
+}
