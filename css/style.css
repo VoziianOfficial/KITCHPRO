@@ -1,49 +1,41 @@
 :root {
-    /* Dark premium base */
     --color-dark: #15110e;
     --color-dark-soft: #1f1915;
     --color-brown-cold: #2a211c;
     --color-brown-card: #342923;
     --color-brown-line: #4a3a31;
 
-    /* Light clean kitchen tones */
     --color-white: #ffffff;
     --color-white-soft: #faf8f5;
     --color-light: #f6f1ea;
     --color-light-warm: #efe4d6;
 
-    /* Beige / natural interior tones */
     --color-beige: #d8c4aa;
     --color-beige-soft: #e8d8c2;
     --color-beige-light: #f3e8d8;
     --color-sand: #c9ae8f;
 
-    /* Pumpkin accent */
     --color-pumpkin: #e87525;
     --color-pumpkin-dark: #c85a17;
     --color-pumpkin-light: #ff9b4a;
     --color-pumpkin-soft: #ffe0c2;
 
-    /* Text */
     --color-text: #241b16;
     --color-text-muted: #77685d;
     --color-text-light: #f8f1e8;
     --color-text-soft: #cdbba8;
 
-    /* Borders and shadows */
     --color-border-light: rgba(42, 33, 28, 0.14);
     --color-border-dark: rgba(255, 255, 255, 0.14);
     --shadow-soft: 0 24px 70px rgba(21, 17, 14, 0.18);
     --shadow-dark: 0 28px 90px rgba(0, 0, 0, 0.34);
 
-    /* Layout */
     --container: 1180px;
     --container-wide: 1320px;
     --section-space: 86px;
     --section-space-sm: 54px;
     --header-height: 82px;
 
-    /* Radius */
     --radius-xs: 10px;
     --radius-sm: 14px;
     --radius-md: 22px;
@@ -51,18 +43,13 @@
     --radius-xl: 42px;
     --radius-pill: 999px;
 
-    /* Typography */
     --font-main: Inter, Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-    /* Motion */
     --transition-fast: 180ms ease;
     --transition-base: 260ms ease;
     --transition-slow: 420ms ease;
 }
 
-/* =========================
-   RESET / BASE
-========================= */
 
 *,
 *::before,
@@ -168,9 +155,6 @@ h6 {
     transform: translateY(0);
 }
 
-/* =========================
-   GLOBAL LAYOUT
-========================= */
 
 .page {
     min-height: 100vh;
@@ -287,9 +271,6 @@ h6 {
     color: var(--color-pumpkin);
 }
 
-/* =========================
-   BRAND / LOGO
-========================= */
 
 .logo {
     display: inline-flex;
@@ -332,9 +313,6 @@ h6 {
     font-size: 1.8rem;
 }
 
-/* =========================
-   BUTTONS / LINKS
-========================= */
 
 .btn {
     position: relative;
@@ -457,9 +435,6 @@ h6 {
     background: rgba(232, 117, 37, 0.1);
 }
 
-/* =========================
-   HEADER
-========================= */
 
 .site-header {
     position: sticky;
@@ -704,9 +679,6 @@ h6 {
     background: rgba(232, 117, 37, 0.1);
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
 
 .mobile-menu {
     position: fixed;
@@ -829,9 +801,6 @@ h6 {
     gap: 12px;
 }
 
-/* =========================
-   HERO / ANCHOR STRIP GLOBAL
-========================= */
 
 .hero {
     position: relative;
@@ -989,9 +958,6 @@ h6 {
     transform: scaleX(1);
 }
 
-/* =========================
-   GLOBAL PREMIUM COMPONENTS
-========================= */
 
 .photo-frame {
     position: relative;
@@ -1110,9 +1076,6 @@ h6 {
     border-bottom: 0;
 }
 
-/* =========================
-   FORMS
-========================= */
 
 .form-grid {
     display: grid;
@@ -1243,9 +1206,6 @@ h6 {
     display: block;
 }
 
-/* =========================
-   CTA CARD
-========================= */
 
 .final-cta {
     position: relative;
@@ -1317,9 +1277,6 @@ h6 {
     gap: 12px;
 }
 
-/* =========================
-   FOOTER
-========================= */
 
 .site-footer {
     color: var(--color-text-soft);
@@ -1426,9 +1383,6 @@ h6 {
     padding-top: 18px;
 }
 
-/* =========================
-   COOKIE BANNER
-========================= */
 
 .cookie-banner {
     position: fixed;
@@ -1491,14 +1445,11 @@ h6 {
     gap: 10px;
 }
 
-/* =========================
-   RESPONSIVE GLOBAL
-========================= */
 
 @media (max-width: 1100px) {
     :root {
-        --section-space: 72px;
-        --section-space-sm: 46px;
+    --section-space: 72px;
+    --section-space-sm: 46px;
     }
 
     .main-nav {
@@ -1545,9 +1496,9 @@ h6 {
 
 @media (max-width: 760px) {
     :root {
-        --section-space: 58px;
-        --section-space-sm: 38px;
-        --header-height: 72px;
+    --section-space: 58px;
+    --section-space-sm: 38px;
+    --header-height: 72px;
     }
 
     body {
@@ -1826,9 +1777,6 @@ h6 {
     white-space: nowrap;
 }
 
-/* =========================
-   FINAL HEADER LOGO BALANCE
-========================= */
 
 .site-header .logo {
     gap: 1px;
@@ -1862,7 +1810,6 @@ h6 {
     font-size: 1.3rem;
 }
 
-/* чтобы хедер не зажимал крупный логотип */
 .site-header__shell {
     min-height: 74px;
 }
@@ -1914,9 +1861,6 @@ h6 {
     }
 }
 
-/* =========================
-   FINAL FOOTER LOGO BALANCE
-========================= */
 
 .site-footer .logo--large {
     gap: 1px;
@@ -1973,9 +1917,6 @@ h6 {
     }
 }
 
-/* =========================
-   FIXED HEADER FIX
-========================= */
 
 .site-header {
     position: fixed;
@@ -1991,7 +1932,6 @@ h6 {
     pointer-events: auto;
 }
 
-/* чтобы якорные переходы не прятались под fixed header */
 [id] {
     scroll-margin-top: 110px;
 }
@@ -2002,9 +1942,6 @@ h6 {
     }
 }
 
-/* =========================
-   HEADER NO-JUMP FIX
-========================= */
 
 .site-header,
 .site-header.is-scrolled {
@@ -2030,7 +1967,6 @@ h6 {
     transform: translateY(1px);
 }
 
-/* scroll-state теперь только визуальный, без изменения размеров */
 .site-header.is-scrolled .site-header__shell {
     background:
         linear-gradient(180deg, rgba(31, 25, 21, 0.98), rgba(21, 17, 14, 0.98)),
@@ -2086,9 +2022,6 @@ h6 {
     }
 }
 
-/* =========================
-   MOBILE MENU LOGO SIZE
-========================= */
 
 .mobile-menu__top .logo {
     gap: 12px;
@@ -2128,9 +2061,6 @@ h6 {
     }
 }
 
-/* =========================
-   MOBILE MENU WITH SHARED HEADER
-========================= */
 
 body.menu-open .site-header {
     z-index: 1300;
@@ -2156,7 +2086,6 @@ body.menu-open .site-header {
     display: none !important;
 }
 
-/* burger -> close */
 .mobile-toggle[aria-expanded="true"] {
     border-color: rgba(232, 117, 37, 0.78);
     background: rgba(232, 117, 37, 0.14);
@@ -2196,9 +2125,6 @@ body.menu-open .site-header {
     }
 }
 
-/* =========================
-   ANCHOR STRIP — COMPACT PILLS STYLE
-========================= */
 
 .anchor-strip {
     position: relative;
@@ -2303,7 +2229,6 @@ body.menu-open .site-header {
     transform: scaleX(1);
 }
 
-/* убираем большой отступ, который был от прошлого варианта */
 .anchor-strip+.section,
 .anchor-strip+.section--compact {
     padding-top: var(--section-space);
@@ -2339,9 +2264,6 @@ body.menu-open .site-header {
     }
 }
 
-/* =========================
-   ANCHOR STRIP SIDE FILL
-========================= */
 
 .anchor-strip__inner {
     width: min(100% - 40px, 1220px);
@@ -2393,9 +2315,6 @@ body.menu-open .site-header {
     }
 }
 
-/* =========================
-   ANCHOR STRIP HOVER CLIP FIX
-========================= */
 
 .anchor-strip {
     padding: 14px 0;
@@ -2411,7 +2330,6 @@ body.menu-open .site-header {
     transform: none;
 }
 
-/* оставляем красивый hover без подъёма вверх */
 .anchor-link:hover,
 .anchor-link:focus-visible,
 .anchor-link.is-active {
@@ -2420,9 +2338,6 @@ body.menu-open .site-header {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* =========================
-   FINAL CTA TITLE BALANCE
-========================= */
 
 .final-cta__card {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -2465,9 +2380,6 @@ body.menu-open .site-header {
     }
 }
 
-/* =========================
-   GLOBAL ACCORDION ICON CENTER FIX
-========================= */
 
 body details.faq-item>summary::after,
 body details.scope-strip>summary::after,
@@ -2533,9 +2445,6 @@ body details[class*="accordion"]:hover>summary::after {
     box-shadow: 0 8px 18px rgba(232, 117, 37, 0.14);
 }
 
-/* =========================
-   SERVICES FINAL CTA — MOBILE COMPACT
-========================= */
 
 @media (max-width: 760px) {
     #services-cta {
@@ -2632,14 +2541,10 @@ body details[class*="accordion"]:hover>summary::after {
     }
 }
 
-/* =========================
-   MOBILE STEP NUMBERS TOP RIGHT
-========================= */
 
 @media (max-width: 760px) {
 
-    /* common card positioning */
-    body .model-section .model-step,
+        body .model-section .model-step,
     body .provider-path .provider-step,
     body .next-steps-section .next-step,
     body .values-section .value-line {
@@ -2647,8 +2552,7 @@ body details[class*="accordion"]:hover>summary::after {
         padding-right: 78px;
     }
 
-    /* ABOUT values numbers */
-    body .values-section .value-line>span {
+        body .values-section .value-line>span {
         position: absolute;
         top: 22px;
         right: 18px;
@@ -2665,8 +2569,7 @@ body details[class*="accordion"]:hover>summary::after {
         color: var(--color-pumpkin-dark);
     }
 
-    /* ABOUT model numbers */
-    body .model-section .model-step>span {
+        body .model-section .model-step>span {
         position: absolute;
         top: 24px;
         right: 20px;
@@ -2681,8 +2584,7 @@ body details[class*="accordion"]:hover>summary::after {
         pointer-events: none;
     }
 
-    /* HOME provider path numbers */
-    body .provider-path .provider-step__number {
+        body .provider-path .provider-step__number {
         position: absolute;
         top: 24px;
         right: 20px;
@@ -2697,8 +2599,7 @@ body details[class*="accordion"]:hover>summary::after {
         pointer-events: none;
     }
 
-    /* CONTACT next steps numbers */
-    body .next-steps-section .next-step>span {
+        body .next-steps-section .next-step>span {
         position: absolute;
         top: 24px;
         right: 20px;
@@ -2713,8 +2614,7 @@ body details[class*="accordion"]:hover>summary::after {
         pointer-events: none;
     }
 
-    /* text should not go under number */
-    body .model-section .model-step h3,
+        body .model-section .model-step h3,
     body .provider-path .provider-step h3,
     body .next-steps-section .next-step h3,
     body .values-section .value-line h3 {
@@ -2749,9 +2649,6 @@ body details[class*="accordion"]:hover>summary::after {
     }
 }
 
-/* =========================
-   GLOBAL HERO TITLE TABLET/MOBILE CENTER FIX
-========================= */
 
 @media (max-width: 1100px) {
     body .hero .hero__inner {

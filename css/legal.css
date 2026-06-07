@@ -1,6 +1,3 @@
-/* =========================
-   LEGAL HERO
-========================= */
 
 .legal-hero {
     min-height: 430px;
@@ -29,9 +26,6 @@
     max-width: 680px;
 }
 
-/* =========================
-   LEGAL LAYOUT
-========================= */
 
 .legal-section {
     position: relative;
@@ -164,9 +158,6 @@
     background: var(--color-pumpkin);
 }
 
-/* =========================
-   LEGAL ARTICLE BLOCKS
-========================= */
 
 .legal-block {
     scroll-margin-top: 120px;
@@ -241,9 +232,6 @@
     color: var(--color-pumpkin);
 }
 
-/* =========================
-   LEGAL NOTICE
-========================= */
 
 .legal-notice {
     margin: 28px 0;
@@ -266,9 +254,6 @@
     color: var(--color-text-muted);
 }
 
-/* =========================
-   LEGAL CONTACT STRIP
-========================= */
 
 .legal-contact-strip {
     display: grid;
@@ -319,9 +304,6 @@
     color: var(--color-pumpkin-dark);
 }
 
-/* =========================
-   JS REVEAL
-========================= */
 
 .legal-reveal {
     opacity: 0;
@@ -336,9 +318,6 @@
     transform: translateY(0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 980px) {
     .legal-layout {

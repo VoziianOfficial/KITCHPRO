@@ -1,6 +1,4 @@
-/* =========================
-   HOME HERO — REFERENCE STYLE
-========================= */
+
 
 .home-hero {
     min-height: clamp(640px, 48vw, 760px);
@@ -10,7 +8,7 @@
         var(--color-dark);
 }
 
-/* перебиваем общий затемняющий слой .hero::before */
+
 .home-hero::before {
     content: "";
     position: absolute;
@@ -129,7 +127,7 @@
     filter: drop-shadow(0 8px 18px rgba(232, 117, 37, 0.2));
 }
 
-/* чуть лучше раскрываем фото справа на широких экранах */
+
 @media (min-width: 1500px) {
     .home-hero {
         background-position: right center;
@@ -140,7 +138,7 @@
     }
 }
 
-/* tablet */
+
 @media (max-width: 1100px) {
     .home-hero {
         min-height: 660px;
@@ -165,7 +163,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 760px) {
     .home-hero {
         min-height: auto;
@@ -251,9 +249,7 @@
     }
 }
 
-/* =========================
-   FEATURED SERVICES
-========================= */
+
 
 .home-services {
     overflow: hidden;
@@ -424,9 +420,7 @@
     margin-top: 24px;
 }
 
-/* =========================
-   ZONES + MATERIALS
-========================= */
+
 
 .zones-materials {
     overflow: hidden;
@@ -582,9 +576,7 @@
     font-weight: 800;
 }
 
-/* =========================
-   MATERIAL BOARD
-========================= */
+
 
 .material-board__grid {
     display: grid;
@@ -652,9 +644,7 @@
     grid-column: span 3;
 }
 
-/* =========================
-   PROVIDER PATH
-========================= */
+
 
 .provider-path {
     overflow: hidden;
@@ -745,9 +735,7 @@
     font-size: 0.96rem;
 }
 
-/* =========================
-   TRUST NOTE
-========================= */
+
 
 .trust-note {
     background:
@@ -789,9 +777,7 @@
     color: rgba(248, 241, 232, 0.76);
 }
 
-/* =========================
-   HOME RESPONSIVE
-========================= */
+
 
 @media (max-width: 1160px) {
     .home-services__layout {
@@ -995,9 +981,7 @@
     }
 }
 
-/* =========================
-   HOME HERO TITLE BALANCE
-========================= */
+
 
 .home-hero .hero__content {
     width: min(100%, 740px);
@@ -1037,9 +1021,7 @@
     }
 }
 
-/* =========================
-   HOME SERVICES — FULL WIDTH HEADING
-========================= */
+
 
 .home-services__layout {
     display: grid;
@@ -1121,7 +1103,7 @@
     gap: 18px;
 }
 
-/* делаем карточки снизу чуть шире и ровнее */
+
 .featured-service-row {
     min-height: 250px;
     grid-template-columns: minmax(320px, 1fr) minmax(320px, 0.86fr);
@@ -1198,9 +1180,7 @@
         min-height: 210px;
     }
 }
-/* =========================
-   KITCHEN ZONES — FULL WIDTH REFERENCE SECTION
-========================= */
+
 
 .zones-materials {
     overflow: hidden;
@@ -1214,7 +1194,7 @@
     width: min(100% - 40px, 1440px);
 }
 
-/* делаем секцию одной широкой панелью */
+
 .zones-materials__grid {
     display: block;
     overflow: hidden;
@@ -1226,7 +1206,7 @@
     box-shadow: 0 28px 80px rgba(0, 0, 0, 0.26);
 }
 
-/* на этом варианте Material Board убираем, как на фото */
+
 .material-board {
     display: none;
 }
@@ -1243,7 +1223,7 @@
     box-shadow: none;
 }
 
-/* левая тёмная текстовая часть */
+
 .kitchen-zones .section-heading {
     position: relative;
     z-index: 3;
@@ -1288,7 +1268,7 @@
     line-height: 1.45;
 }
 
-/* фото справа — не карточка, а фон всей правой части */
+
 .kitchen-zones__visual {
     position: relative;
     min-height: 270px;
@@ -1327,7 +1307,7 @@
     filter: saturate(0.96) contrast(1.04) brightness(0.86);
 }
 
-/* метки как на референсе */
+
 .zone-dot {
     z-index: 4;
     min-height: 32px;
@@ -1379,7 +1359,7 @@
         0 0 26px rgba(232, 117, 37, 0.18);
 }
 
-/* позиции как на фото */
+
 .zone-dot--cabinets {
     left: 21%;
     top: 24%;
@@ -1410,7 +1390,7 @@
     top: 92%;
 }
 
-/* мобильная версия */
+
 @media (max-width: 980px) {
     .kitchen-zones {
         grid-template-columns: 1fr;
@@ -1476,9 +1456,7 @@
     }
 }
 
-/* =========================
-   MATERIALS SHOWCASE — CLEAN 4 CARDS
-========================= */
+
 
 .materials-showcase {
     position: relative;
@@ -1657,9 +1635,7 @@
     }
 }
 
-/* =========================
-   QUOTE FACTORS — COMPARISON SECTION
-========================= */
+
 
 .quote-factors {
     overflow: hidden;
@@ -1826,9 +1802,7 @@
     }
 }
 
-/* =========================
-   QUOTE FACTORS — BIG ICONS RIGHT
-========================= */
+
 
 .quote-factor {
     position: relative;
@@ -1891,7 +1865,7 @@
     max-width: 250px;
 }
 
-/* лёгкое свечение без фона у иконки */
+
 .quote-factor::after {
     content: "";
     position: absolute;
@@ -1952,9 +1926,7 @@
     }
 }
 
-/* =========================
-   QUOTE FACTORS — SECTION SEPARATION
-========================= */
+
 
 .quote-factors {
     background:
@@ -2006,9 +1978,7 @@
     border-bottom-color: rgba(232, 117, 37, 0.26);
 }
 
-/* =========================
-   FINAL CTA — LIGHT SECTION BACKGROUND ONLY
-========================= */
+
 
 .final-cta {
     background:
@@ -2016,7 +1986,7 @@
         linear-gradient(180deg, #f6f1ea 0%, #fffaf4 100%);
 }
 
-/* чтобы сама карточка осталась тёмной и премиальной */
+
 .final-cta__card {
     color: var(--color-text-light);
 }

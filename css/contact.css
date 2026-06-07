@@ -1,6 +1,4 @@
-/* =========================
-   CONTACT HERO — REFERENCE STYLE
-========================= */
+
 
 .contact-hero {
     min-height: clamp(600px, 46vw, 720px);
@@ -105,7 +103,7 @@
     backdrop-filter: blur(10px);
 }
 
-/* как на референсе: чистый hero без нижних chips */
+
 .contact-hero .hero__chips {
     display: none;
 }
@@ -214,9 +212,7 @@
     }
 }
 
-/* =========================
-   CONTACT FORM
-========================= */
+
 
 .contact-form-section {
     overflow: hidden;
@@ -287,9 +283,7 @@
     margin-top: 18px;
 }
 
-/* =========================
-   CONTACT DETAILS
-========================= */
+
 
 .contact-detail-section {
     overflow: hidden;
@@ -347,9 +341,7 @@
     word-break: break-word;
 }
 
-/* =========================
-   NEXT STEPS
-========================= */
+
 
 .next-steps-section {
     overflow: hidden;
@@ -438,9 +430,7 @@
     font-size: 0.96rem;
 }
 
-/* =========================
-   FAQ
-========================= */
+
 
 .contact-faq {
     background:
@@ -526,9 +516,7 @@
     font-size: 0.96rem;
 }
 
-/* =========================
-   JS REVEAL
-========================= */
+
 
 .contact-reveal {
     opacity: 0;
@@ -543,9 +531,7 @@
     transform: translateY(0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
 
 @media (max-width: 1080px) {
     .contact-layout {
@@ -658,9 +644,7 @@
         0 0 0 4px rgba(232, 117, 37, 0.08);
 }
 
-/* =========================
-   CONTACT DETAILS — WIDE COMPACT CARDS
-========================= */
+
 
 .contact-detail-section {
     overflow: hidden;
@@ -673,7 +657,7 @@
     width: min(100% - 40px, 1320px);
 }
 
-/* заголовок на всю ширину секции */
+
 .contact-detail-section .section-heading {
     max-width: none;
     width: 100%;
@@ -710,7 +694,7 @@
     line-height: 1.5;
 }
 
-/* карточки ниже — шире и ниже */
+
 .contact-detail-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -867,9 +851,7 @@
     }
 }
 
-/* =========================
-   REQUEST CLARITY — FULL WIDTH SLASH SPLIT
-========================= */
+
 
 .request-clarity-section {
     overflow: hidden;
@@ -885,7 +867,7 @@
     width: min(100% - 40px, 1440px);
 }
 
-/* одна цельная широкая секция, без gap между частями */
+
 .request-clarity__grid {
     position: relative;
     display: grid;
@@ -902,7 +884,7 @@
     box-shadow: none;
 }
 
-/* общие карточки теперь не выглядят как отдельные карточки */
+
 .request-clarity__card {
     position: relative;
     min-height: 430px;
@@ -912,7 +894,7 @@
     box-shadow: none;
 }
 
-/* текстовая сторона */
+
 .request-clarity__card--text {
     z-index: 2;
     display: flex;
@@ -936,7 +918,7 @@
     background: linear-gradient(180deg, var(--color-pumpkin-light), var(--color-pumpkin-dark));
 }
 
-/* фото-сторона со скосом / */
+
 .request-clarity__card--photo {
     z-index: 3;
     margin-left: -96px;
@@ -962,7 +944,7 @@
     pointer-events: none;
 }
 
-/* декоративная линия по скосу */
+
 .request-clarity__card--photo::after {
     content: "";
     position: absolute;
@@ -1043,7 +1025,7 @@
     font-weight: 850;
 }
 
-/* tablet/mobile */
+
 @media (max-width: 900px) {
     .request-clarity-section .container-wide {
         width: 100%;
@@ -1098,15 +1080,13 @@
     }
 }
 
-/* =========================
-   REQUEST CLARITY — NO SIDE GAPS
-========================= */
+
 
 .request-clarity-section {
     padding: 0;
 }
 
-/* убираем отступы по бокам только у этой секции */
+
 .request-clarity-section .container-wide {
     width: 100%;
     max-width: none;
@@ -1114,19 +1094,19 @@
     padding: 0;
 }
 
-/* сама полоса теперь от края до края */
+
 .request-clarity__grid {
     width: 100%;
     border-left: 0;
     border-right: 0;
 }
 
-/* текст не должен липнуть к краю, но сама секция без боковых зазоров */
+
 .request-clarity__card--text {
     padding-left: max(24px, calc((100vw - 1440px) / 2 + 42px));
 }
 
-/* фото справа тоже до самого края */
+
 .request-clarity__card--photo {
     margin-right: 0;
 }

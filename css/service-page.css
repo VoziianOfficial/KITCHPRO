@@ -1,6 +1,4 @@
-/* =========================
-   SERVICE PAGE HERO
-========================= */
+
 
 .service-hero {
     background:
@@ -35,9 +33,7 @@
     font-weight: 800;
 }
 
-/* =========================
-   COMPARE SPLIT
-========================= */
+
 
 .compare-section {
     overflow: hidden;
@@ -132,9 +128,7 @@
     font-size: 0.94rem;
 }
 
-/* =========================
-   SCOPE ROWS
-========================= */
+
 
 .scope-factor-section {
     overflow: hidden;
@@ -213,9 +207,7 @@
     font-size: 0.97rem;
 }
 
-/* =========================
-   TIMELINE
-========================= */
+
 
 .timeline-section {
     overflow: hidden;
@@ -304,9 +296,7 @@
     font-size: 0.96rem;
 }
 
-/* =========================
-   QUOTE TABLE
-========================= */
+
 
 .service-table-section {
     background:
@@ -314,9 +304,7 @@
         var(--color-white-soft);
 }
 
-/* =========================
-   RELATED SERVICES
-========================= */
+
 
 .related-section {
     overflow: hidden;
@@ -417,9 +405,7 @@
     padding-top: 22px;
 }
 
-/* =========================
-   JS REVEAL
-========================= */
+
 
 .service-page-reveal {
     opacity: 0;
@@ -434,9 +420,7 @@
     transform: translateY(0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
 
 @media (max-width: 1080px) {
     .compare-layout {
@@ -604,9 +588,7 @@
     color: var(--color-pumpkin-light);
 }
 
-/* =========================
-   SERVICE HERO IMAGES
-========================= */
+
 
 .service-hero--full {
     --service-hero-image: url("../assets/images/full-kitchen-remodeling.jpg");
@@ -632,9 +614,7 @@
     --service-hero-image: url("../assets/images/lighting-fixtures-finishing.jpg");
 }
 
-/* =========================
-   COMPARE SECTION — TRUE SLANTED PHOTO FULL WIDTH
-========================= */
+
 
 .compare-section {
     position: relative;
@@ -646,7 +626,7 @@
     border-bottom: 1px solid rgba(42, 33, 28, 0.14);
 }
 
-/* убираем контейнерные отступы: секция от края до края */
+
 .compare-section .container-wide {
     width: 100% !important;
     max-width: none !important;
@@ -654,7 +634,7 @@
     padding: 0 !important;
 }
 
-/* общая горизонтальная полоса */
+
 .compare-layout {
     display: grid;
     grid-template-columns: minmax(320px, 0.42fr) minmax(0, 0.58fr);
@@ -664,7 +644,7 @@
     width: 100%;
 }
 
-/* текст слева */
+
 .compare-content {
     position: relative;
     z-index: 3;
@@ -682,7 +662,7 @@
     box-shadow: none !important;
 }
 
-/* светлый скос поверх стыка, чтобы текстовая часть врезалась в фото */
+
 .compare-content::after {
     content: "";
     position: absolute;
@@ -696,7 +676,7 @@
     pointer-events: none;
 }
 
-/* тонкая линия по скосу */
+
 .compare-content::before {
     content: "";
     position: absolute;
@@ -715,7 +695,7 @@
     pointer-events: none;
 }
 
-/* фото справа: САМО ФОТО скошено */
+
 .compare-photo {
     position: relative;
     z-index: 1;
@@ -732,7 +712,7 @@
     background: var(--color-brown-card);
     box-shadow: none !important;
 
-    /* вот тут именно фото-блок косой */
+    
     clip-path: polygon(96px 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -772,7 +752,7 @@
     filter: saturate(1.06) contrast(1.06) brightness(1);
 }
 
-/* текст как на референсе */
+
 .compare-content .section-kicker {
     display: none;
 }
@@ -839,7 +819,7 @@
     line-height: 1.35;
 }
 
-/* tablet/mobile */
+
 @media (max-width: 980px) {
     .compare-layout {
         grid-template-columns: 1fr;
@@ -912,9 +892,7 @@
     }
 }
 
-/* =========================
-   TIMELINE — CLEAN PREMIUM RAIL
-========================= */
+
 
 .timeline-section {
     overflow: hidden;
@@ -951,7 +929,7 @@
     line-height: 1.45;
 }
 
-/* линия */
+
 .timeline-rail {
     position: relative;
     display: grid;
@@ -960,7 +938,7 @@
     padding-top: 0;
 }
 
-/* основная горизонтальная линия */
+
 .timeline-rail::before {
     content: "";
     position: absolute;
@@ -979,7 +957,7 @@
         0 8px 20px rgba(42, 33, 28, 0.08);
 }
 
-/* лёгкий медный прогресс поверх */
+
 .timeline-rail::after {
     content: "";
     position: absolute;
@@ -1016,7 +994,7 @@
     background: transparent !important;
 }
 
-/* большие объёмные круги */
+
 .timeline-step span {
     position: absolute;
     top: 0;
@@ -1077,7 +1055,7 @@
     line-height: 1.35;
 }
 
-/* tablet */
+
 @media (max-width: 900px) {
     .timeline-section {
         padding: 62px 0;
@@ -1103,7 +1081,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 560px) {
     .timeline-heading {
         margin-bottom: 34px;
@@ -1154,29 +1132,27 @@
     }
 }
 
-/* =========================
-   TIMELINE — REMOVE LINE HOVER
-========================= */
 
-/* обычная линия остается, но всегда под кругами */
+
+
 .timeline-rail::before,
 .timeline-rail::after {
     z-index: 0;
 }
 
-/* отключаем медную линию-прогресс при hover */
+
 .timeline-rail::after {
     display: none !important;
 }
 
-/* на всякий случай убираем старый hover */
+
 .timeline-rail:hover::after,
 .timeline-rail.is-in-view::after {
     display: none !important;
     transform: none !important;
 }
 
-/* шаги и круги всегда выше линии */
+
 .timeline-step {
     z-index: 1;
 }
@@ -1185,16 +1161,14 @@
     z-index: 3;
 }
 
-/* =========================
-   SCOPE FACTORS — ICONS INSTEAD OF NUMBERS
-========================= */
 
-/* если старые цифры где-то остались */
+
+
 .scope-factor-row__number {
     display: none;
 }
 
-/* desktop: иконка остается в первой колонке, как раньше цифра */
+
 .scope-factor-row__icon {
     width: 58px;
     height: 58px;
@@ -1231,7 +1205,7 @@
     transform: translateX(4px) scale(1.04);
 }
 
-/* чтобы desktop-сетка осталась такой же */
+
 .scope-factor-row {
     grid-template-columns: 90px minmax(0, 0.85fr) minmax(0, 1.15fr);
 }
@@ -1244,7 +1218,7 @@
     grid-column: 3;
 }
 
-/* mobile: иконка справа сверху */
+
 @media (max-width: 760px) {
     .scope-factor-row {
         grid-template-columns: 1fr;
@@ -1310,11 +1284,9 @@
     }
 }
 
-/* =========================
-   TIMELINE — TABLET ONE LINE + MOBILE CARDS
-========================= */
 
-/* tablet: все 4 шага в одну линию */
+
+
 @media (min-width: 761px) and (max-width: 1024px) {
     .timeline-section .container-wide {
         width: min(100% - 28px, 1180px);
@@ -1365,7 +1337,7 @@
     }
 }
 
-/* mobile: выразительные отдельные карточки */
+
 @media (max-width: 760px) {
     .timeline-section {
         padding: 56px 0;
@@ -1502,9 +1474,7 @@
     }
 }
 
-/* =========================
-   TIMELINE — MOBILE CLEAN ROW ITEMS
-========================= */
+
 
 @media (max-width: 760px) {
     .timeline-section {
@@ -1681,9 +1651,7 @@
     }
 }
 
-/* =========================
-   QUOTE FACTORS — COMPACT EXPRESSIVE ROWS
-========================= */
+
 
 .service-table-section {
     overflow: hidden;
@@ -1732,7 +1700,7 @@
     line-height: 1.5;
 }
 
-/* вместо таблицы — компактные строки */
+
 .quote-factor-list {
     display: grid;
     border-top: 1px solid rgba(42, 33, 28, 0.14);
@@ -1813,7 +1781,7 @@
     box-shadow: 0 0 0 5px rgba(232, 117, 37, 0.1);
 }
 
-/* tablet */
+
 @media (max-width: 980px) {
     .service-table-section .section-heading {
         grid-template-columns: 1fr;
@@ -1835,7 +1803,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 640px) {
     .service-table-section .container {
         width: min(100% - 24px, 1160px);
@@ -1901,9 +1869,7 @@
     }
 }
 
-/* =========================
-   QUOTE FACTORS — TABLET CARD LAYOUT
-========================= */
+
 
 @media (min-width: 641px) and (max-width: 1024px) {
     .service-table-section {

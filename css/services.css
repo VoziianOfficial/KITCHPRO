@@ -1,6 +1,4 @@
-/* =========================
-   SERVICES HERO — REFERENCE STYLE
-========================= */
+
 
 .services-hero {
     min-height: clamp(600px, 46vw, 720px);
@@ -65,8 +63,7 @@
     display: none;
 }
 
-/* вот тут сразу исправлен заголовок:
-   чуть меньше + больше места по ширине */
+
 .services-hero .hero__title {
     max-width: 720px;
     font-size: clamp(2.95rem, 4.65vw, 5.1rem);
@@ -107,13 +104,12 @@
     backdrop-filter: blur(10px);
 }
 
-/* на фото этих трех иконок в hero нет,
-   поэтому для совпадения лучше скрыть */
+
 .services-hero .hero__chips {
     display: none;
 }
 
-/* tablet */
+
 @media (max-width: 1100px) {
     .services-hero {
         min-height: 630px;
@@ -144,7 +140,7 @@
     }
 }
 
-/* mobile */
+
 @media (max-width: 760px) {
     .services-hero {
         min-height: auto;
@@ -219,9 +215,7 @@
     }
 }
 
-/* =========================
-   SERVICE INDEX
-========================= */
+
 
 .service-index {
     overflow: hidden;
@@ -373,9 +367,7 @@
     background: var(--color-pumpkin);
 }
 
-/* =========================
-   SCOPE SECTION
-========================= */
+
 
 .scope-section {
     overflow: hidden;
@@ -495,9 +487,7 @@
     color: rgba(248, 241, 232, 0.74);
 }
 
-/* =========================
-   COMPARISON
-========================= */
+
 
 .comparison-section {
     background:
@@ -509,9 +499,7 @@
     max-width: 780px;
 }
 
-/* =========================
-   MOSAIC SECTION
-========================= */
+
 
 .mosaic-section {
     overflow: hidden;
@@ -597,9 +585,7 @@
     grid-column: span 2;
 }
 
-/* =========================
-   FAQ
-========================= */
+
 
 .services-faq {
     background:
@@ -685,9 +671,7 @@
     font-size: 0.96rem;
 }
 
-/* =========================
-   ANIMATIONS FROM services.js
-========================= */
+
 
 .services-reveal {
     opacity: 0;
@@ -702,9 +686,7 @@
     transform: translateY(0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
 
 @media (max-width: 1040px) {
     .service-row__main {
@@ -873,9 +855,7 @@
     background: var(--color-pumpkin);
 }
 
-/* =========================
-   SERVICE INDEX — PHOTO AS RIGHT BACKGROUND
-========================= */
+
 
 .service-index {
     position: relative;
@@ -909,7 +889,7 @@
     letter-spacing: -0.035em;
 }
 
-/* если хочешь как на фото, поменяй текст h2 в HTML на Featured Services */
+
 
 .service-index__list {
     position: relative;
@@ -1059,7 +1039,7 @@
     line-height: 1.45;
 }
 
-/* фото теперь не карточка, а фон справа */
+
 .service-row__photo {
     position: absolute;
     inset: 0 42px 0 auto;
@@ -1112,12 +1092,8 @@
     background: transparent;
 }
 
-/* если хочешь ровно как на скрине — только 4 строки, раскомментируй */
-/*
-.service-row:nth-child(n + 5) {
-    display: none;
-}
-*/
+
+
 
 @media (max-width: 900px) {
     .service-index .container-wide {
@@ -1201,9 +1177,7 @@
     }
 }
 
-/* =========================
-   SERVICE INDEX — WIDER & TALLER ROWS
-========================= */
+
 
 .service-index {
     padding: 88px 0;
@@ -1257,7 +1231,7 @@
     height: 20px;
 }
 
-/* заголовок тоже чуть шире и спокойнее */
+
 .service-index .section-heading {
     padding-left: 38px;
     margin-bottom: 22px;
@@ -1267,7 +1241,7 @@
     font-size: clamp(1.55rem, 2.25vw, 2.15rem);
 }
 
-/* если 6 строк выглядят слишком длинно, можно сделать 5–6 чуть ниже */
+
 .service-row:nth-child(n + 5) .service-row__main {
     min-height: 156px;
 }
@@ -1315,9 +1289,7 @@
     }
 }
 
-/* =========================
-   COMPARISON SECTION — COMPACT TWO CARDS
-========================= */
+
 
 .comparison-section {
     overflow: hidden;
@@ -1330,7 +1302,7 @@
     width: min(100% - 40px, 1180px);
 }
 
-/* заголовок на всю ширину секции */
+
 .comparison-section .section-heading {
     max-width: none;
     width: 100%;
@@ -1365,7 +1337,7 @@
     line-height: 1.5;
 }
 
-/* две плотные одинаковые карточки */
+
 .comparison-cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1499,7 +1471,7 @@
     background: var(--color-pumpkin);
 }
 
-/* адаптив */
+
 @media (max-width: 900px) {
     .comparison-section .section-heading {
         grid-template-columns: 1fr;
@@ -1548,9 +1520,7 @@
         margin-top: 22px;
     }
 }
-/* =========================
-   COMPARISON HEADING SPACE FIX
-========================= */
+
 
 .comparison-section .section-heading {
     grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
@@ -1579,9 +1549,7 @@
     }
 }
 
-/* =========================
-   SCOPE FACTORS — LIGHT ICON ROW
-========================= */
+
 
 .scope-section {
     overflow: hidden;
@@ -1714,9 +1682,7 @@
     }
 }
 
-/* =========================
-   SCOPE FACTORS — MOBILE HORIZONTAL SWIPE
-========================= */
+
 
 @media (max-width: 760px) {
     .scope-section {
@@ -1793,9 +1759,7 @@
     }
 }
 
-/* =========================
-   SERVICE INDEX — MOBILE CARDS
-========================= */
+
 
 @media (max-width: 760px) {
     .service-index {
