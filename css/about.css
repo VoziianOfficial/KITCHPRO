@@ -811,3 +811,315 @@
         transform: none;
     }
 }
+
+/* =========================
+   COMPARISON FOCUS — SLANTED HORIZONTAL BAND
+========================= */
+
+.comparison-focus {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    color: var(--color-text-light);
+    background:
+        radial-gradient(circle at 88% 0%, rgba(232, 117, 37, 0.16), transparent 28rem),
+        linear-gradient(180deg, #15110e 0%, #0d0a08 100%);
+    border-top: 1px solid rgba(232, 216, 194, 0.14);
+    border-bottom: 1px solid rgba(232, 216, 194, 0.14);
+}
+
+.comparison-focus__inner {
+    width: min(100% - 40px, 1440px);
+    min-height: 420px;
+    display: grid;
+    grid-template-columns: minmax(420px, 0.92fr) minmax(0, 1fr);
+    align-items: stretch;
+}
+
+/* фото слева без карточки, со скосом */
+.comparison-focus__photo {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 86px) 100%, 0 100%);
+    background: var(--color-brown-card);
+}
+
+.comparison-focus__photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg,
+            rgba(8, 6, 5, 0.08) 0%,
+            rgba(8, 6, 5, 0.16) 48%,
+            rgba(8, 6, 5, 0.52) 100%),
+        linear-gradient(180deg,
+            rgba(8, 6, 5, 0.04) 0%,
+            transparent 44%,
+            rgba(8, 6, 5, 0.38) 100%);
+    pointer-events: none;
+}
+
+.comparison-focus__photo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 74px;
+    z-index: 2;
+    width: 1px;
+    height: 130%;
+    transform: rotate(11deg);
+    transform-origin: top;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(232, 117, 37, 0.7),
+            rgba(232, 216, 194, 0.28),
+            transparent);
+    pointer-events: none;
+}
+
+.comparison-focus__photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    filter: saturate(0.95) contrast(1.05) brightness(0.86);
+    transform: scale(1.01);
+    transition:
+        transform 820ms ease,
+        filter var(--transition-base);
+}
+
+.comparison-focus__photo:hover img {
+    transform: scale(1.06);
+    filter: saturate(1.08) contrast(1.06) brightness(0.98);
+}
+
+/* текст справа, без карточки */
+.comparison-focus__content {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(42px, 6vw, 86px) clamp(26px, 5vw, 74px);
+    margin-left: -54px;
+    color: var(--color-text-light);
+}
+
+.comparison-focus__content::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 54px;
+    bottom: 54px;
+    width: 1px;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(232, 216, 194, 0.22),
+            transparent);
+}
+
+.comparison-focus__content .section-kicker {
+    margin-bottom: 14px;
+    color: var(--color-pumpkin-soft);
+}
+
+.comparison-focus__content .section-kicker::before {
+    display: none;
+}
+
+.comparison-focus__content h2 {
+    max-width: 760px;
+    color: #fff8ef;
+    font-size: clamp(2.1rem, 4.1vw, 4.35rem);
+    line-height: 1.01;
+    letter-spacing: -0.058em;
+}
+
+.comparison-focus__content p:not(.section-kicker) {
+    max-width: 640px;
+    margin-top: 18px;
+    color: rgba(248, 241, 232, 0.72);
+    font-size: 1.03rem;
+    line-height: 1.55;
+}
+
+.comparison-focus__points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.comparison-focus__points span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 8px 14px;
+    border: 1px solid rgba(232, 216, 194, 0.18);
+    border-radius: 999px;
+    color: var(--color-pumpkin-soft);
+    background: rgba(255, 255, 255, 0.045);
+    font-size: 0.84rem;
+    font-weight: 850;
+}
+
+.comparison-focus .arrow-link {
+    width: fit-content;
+    margin-top: 30px;
+}
+
+/* tablet */
+@media (max-width: 980px) {
+    .comparison-focus__inner {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .comparison-focus__photo {
+        min-height: 320px;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), 0 100%);
+    }
+
+    .comparison-focus__photo::after {
+        display: none;
+    }
+
+    .comparison-focus__photo img {
+        min-height: 320px;
+    }
+
+    .comparison-focus__content {
+        min-height: auto;
+        margin-left: 0;
+        padding: 34px 28px 46px;
+    }
+
+    .comparison-focus__content::before {
+        display: none;
+    }
+}
+
+/* mobile */
+@media (max-width: 560px) {
+
+    .comparison-focus__photo,
+    .comparison-focus__photo img {
+        min-height: 250px;
+    }
+
+    .comparison-focus__content {
+        padding: 30px 20px 40px;
+    }
+
+    .comparison-focus__content h2 {
+        font-size: clamp(1.85rem, 8.4vw, 2.6rem);
+    }
+
+    .comparison-focus__content p:not(.section-kicker) {
+        font-size: 0.94rem;
+    }
+
+    .comparison-focus__points {
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .comparison-focus__points span {
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================
+   COMPARISON FOCUS — FULL BLEED LEFT PHOTO FIX
+========================= */
+
+.comparison-focus {
+    padding: 0;
+}
+
+/* убираем отступ контейнера: фото теперь начинается от самого левого края */
+.comparison-focus__inner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(420px, 46vw) minmax(0, 1fr);
+    min-height: 430px;
+}
+
+/* само фото скошенное */
+.comparison-focus__photo {
+    min-height: 430px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 96px) 100%, 0 100%);
+}
+
+/* делаем скос заметнее и дороже */
+.comparison-focus__photo::after {
+    right: 84px;
+    width: 2px;
+    height: 140%;
+    transform: rotate(12deg);
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(232, 117, 37, 0.78),
+            rgba(232, 216, 194, 0.28),
+            transparent);
+}
+
+/* фото должно заполнять всю левую часть без внутренних зазоров */
+.comparison-focus__photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* текст справа оставляем с нормальным контейнерным отступом */
+.comparison-focus__content {
+    margin-left: -72px;
+    padding:
+        clamp(42px, 6vw, 86px) max(24px, calc((100vw - 1440px) / 2 + 42px)) clamp(42px, 6vw, 86px) clamp(86px, 8vw, 130px);
+}
+
+/* чтобы линия внутри текста не налезала на скос */
+.comparison-focus__content::before {
+    left: 42px;
+}
+
+@media (max-width: 980px) {
+    .comparison-focus__inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .comparison-focus__photo {
+        min-height: 320px;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 54px), 0 100%);
+    }
+
+    .comparison-focus__photo img {
+        min-height: 320px;
+    }
+
+    .comparison-focus__content {
+        margin-left: 0;
+        padding: 34px 28px 46px;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .comparison-focus__photo,
+    .comparison-focus__photo img {
+        min-height: 250px;
+    }
+
+    .comparison-focus__content {
+        padding: 30px 20px 40px;
+    }
+}
