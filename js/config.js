@@ -3,6 +3,7 @@
 window.SITE_CONFIG = {
     company: {
         name: 'KITCHPRO',
+        logoParts: ['KITCH', 'PRO'],
         companyId: 'KTP-KR-4827',
         address: '1846 Westlake Kitchen Avenue, Austin, TX 78701, USA',
         serviceArea: 'USA kitchen remodeling provider comparison platform'

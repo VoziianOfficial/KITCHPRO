@@ -24,6 +24,201 @@
         return value === undefined || value === null ? '' : String(value);
     }
 
+    const HARDCODED_SITE_VALUES = {
+        companyName: 'KITCHPRO',
+        companyId: 'KTP-KR-4827',
+        address: '1846 Westlake Kitchen Avenue, Austin, TX 78701, USA',
+        serviceArea: 'USA kitchen remodeling provider comparison platform',
+
+        phoneRaw: '+18885550148',
+        phoneDisplay: '(888) 555-0148',
+        phoneButtonText: 'Compare Kitchen Providers',
+        email: 'hello@kitchprocompare.com',
+        supportHours: 'Mon–Fri, 8:00 AM–7:00 PM'
+    };
+
+    function escapeRegExp(value) {
+        return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#039;');
+    }
+
+    function replaceConfigValuesInString(text, replacements) {
+        if (!text) return text;
+
+        let result = String(text);
+
+        replacements.forEach(({ from, to }) => {
+            if (!from || to === undefined || to === null) return;
+
+            result = result.replace(
+                new RegExp(escapeRegExp(from), 'g'),
+                String(to)
+            );
+        });
+
+        return result;
+    }
+
+    function getGlobalConfigReplacements() {
+        const company = CONFIG.company || {};
+        const contact = CONFIG.contact || {};
+
+        const oldPhoneRaw = HARDCODED_SITE_VALUES.phoneRaw;
+        const newPhoneRaw = contact.phoneRaw || oldPhoneRaw;
+
+        const oldEmail = HARDCODED_SITE_VALUES.email;
+        const newEmail = contact.email || oldEmail;
+
+        return [
+            {
+                from: HARDCODED_SITE_VALUES.companyName,
+                to: company.name
+            },
+            {
+                from: HARDCODED_SITE_VALUES.companyId,
+                to: company.companyId
+            },
+            {
+                from: HARDCODED_SITE_VALUES.address,
+                to: company.address
+            },
+            {
+                from: HARDCODED_SITE_VALUES.serviceArea,
+                to: company.serviceArea
+            },
+            {
+                from: HARDCODED_SITE_VALUES.phoneDisplay,
+                to: contact.phoneDisplay
+            },
+            {
+                from: HARDCODED_SITE_VALUES.phoneRaw,
+                to: contact.phoneRaw
+            },
+            {
+                from: HARDCODED_SITE_VALUES.phoneButtonText,
+                to: contact.phoneButtonText
+            },
+            {
+                from: HARDCODED_SITE_VALUES.email,
+                to: contact.email
+            },
+            {
+                from: HARDCODED_SITE_VALUES.supportHours,
+                to: contact.supportHours
+            },
+            {
+                from: `tel:${oldPhoneRaw}`,
+                to: `tel:${newPhoneRaw}`
+            },
+            {
+                from: `mailto:${oldEmail}`,
+                to: `mailto:${newEmail}`
+            }
+        ];
+    }
+
+    function updateLogoWordFromConfig() {
+        const companyName = CONFIG.company?.name || HARDCODED_SITE_VALUES.companyName;
+        const logoParts = CONFIG.company?.logoParts;
+
+        document.querySelectorAll('.logo__word').forEach((logoWord) => {
+            if (Array.isArray(logoParts) && logoParts.length) {
+                logoWord.innerHTML = logoParts
+                    .map((part) => `<span>${escapeHtml(part)}</span>`)
+                    .join('');
+                return;
+            }
+
+            const proMatch = companyName.match(/^(.*?)(PRO)$/i);
+
+            if (proMatch && proMatch[1]) {
+                logoWord.innerHTML = `
+                <span>${escapeHtml(proMatch[1])}</span><span>${escapeHtml(proMatch[2])}</span>
+            `;
+                return;
+            }
+
+            logoWord.innerHTML = `<span>${escapeHtml(companyName)}</span>`;
+        });
+    }
+
+    function applyConfigEverywhereWithoutDataAttributes() {
+        const replacements = getGlobalConfigReplacements();
+
+        document.title = replaceConfigValuesInString(document.title, replacements);
+
+        document.querySelectorAll('meta[content]').forEach((meta) => {
+            meta.setAttribute(
+                'content',
+                replaceConfigValuesInString(meta.getAttribute('content'), replacements)
+            );
+        });
+
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+
+                    if (!parent) return NodeFilter.FILTER_REJECT;
+
+                    if (parent.closest('script, style, noscript, template')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    if (!node.nodeValue.trim()) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const textNodes = [];
+
+        while (walker.nextNode()) {
+            textNodes.push(walker.currentNode);
+        }
+
+        textNodes.forEach((node) => {
+            node.nodeValue = replaceConfigValuesInString(node.nodeValue, replacements);
+        });
+
+        const attributesToUpdate = [
+            'href',
+            'aria-label',
+            'title',
+            'alt',
+            'placeholder',
+            'value'
+        ];
+
+        document.querySelectorAll('*').forEach((element) => {
+            if (element.closest('script, style, noscript, template')) return;
+
+            attributesToUpdate.forEach((attr) => {
+                if (!element.hasAttribute(attr)) return;
+
+                element.setAttribute(
+                    attr,
+                    replaceConfigValuesInString(element.getAttribute(attr), replacements)
+                );
+            });
+        });
+
+        updateLogoWordFromConfig();
+    }
+
     function getCookieStorageKey() {
         return CONFIG.cookies?.storageKey || 'kitchpro_cookie_consent';
     }
@@ -92,6 +287,7 @@
             }
         });
     }
+
 
     function createServiceLink(service, className) {
         const link = document.createElement('a');
@@ -540,6 +736,7 @@
     function init() {
         exposeHelpers();
         applyConfigText();
+        applyConfigEverywhereWithoutDataAttributes();
         renderServiceMenus();
         initStickyHeader();
         initMobileMenu();
