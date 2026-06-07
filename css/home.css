@@ -2020,3 +2020,7 @@
 .final-cta__card {
     color: var(--color-text-light);
 }
+
+.final-cta {
+    border-top: 1px solid rgba(42, 33, 28, 0.12);
+}

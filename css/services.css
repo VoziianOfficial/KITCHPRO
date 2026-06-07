@@ -1315,3 +1315,267 @@
         font-size: 2.35rem;
     }
 }
+
+/* =========================
+   COMPARISON SECTION — COMPACT TWO CARDS
+========================= */
+
+.comparison-section {
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 88% 8%, rgba(232, 117, 37, 0.09), transparent 26rem),
+        linear-gradient(180deg, #faf8f5 0%, #f6f1ea 100%);
+}
+
+.comparison-section .container {
+    width: min(100% - 40px, 1180px);
+}
+
+/* заголовок на всю ширину секции */
+.comparison-section .section-heading {
+    max-width: none;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.66fr) minmax(280px, 0.34fr);
+    gap: clamp(22px, 5vw, 70px);
+    align-items: end;
+    border-bottom: 1px solid rgba(42, 33, 28, 0.14);
+}
+
+.comparison-section .section-kicker {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.comparison-section .section-heading h2 {
+    max-width: 860px;
+    color: var(--color-text);
+    font-size: clamp(2.15rem, 3.9vw, 3.85rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.comparison-section .section-heading p {
+    max-width: 430px;
+    justify-self: end;
+    margin-top: 0;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* две плотные одинаковые карточки */
+.comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.comparison-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    padding: 28px;
+    border: 1px solid rgba(42, 33, 28, 0.14);
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at top right, rgba(232, 117, 37, 0.1), transparent 15rem),
+        rgba(255, 255, 255, 0.62);
+    box-shadow: 0 22px 54px rgba(21, 17, 14, 0.1);
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        background var(--transition-base);
+}
+
+.comparison-card::before {
+    content: "";
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 24px;
+    height: 1px;
+    transform: scaleX(0.24);
+    transform-origin: left;
+    background: var(--color-pumpkin);
+    transition: transform var(--transition-slow);
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232, 117, 37, 0.34);
+    background:
+        radial-gradient(circle at top right, rgba(232, 117, 37, 0.15), transparent 16rem),
+        rgba(255, 255, 255, 0.82);
+    box-shadow: 0 30px 72px rgba(21, 17, 14, 0.16);
+}
+
+.comparison-card:hover::before {
+    transform: scaleX(1);
+}
+
+.comparison-card__icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 86px;
+    height: 86px;
+    color: rgba(232, 117, 37, 0.58);
+    pointer-events: none;
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base);
+}
+
+.comparison-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.comparison-card__icon path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.comparison-card:hover .comparison-card__icon {
+    transform: translateY(-4px) scale(1.04);
+    color: rgba(232, 117, 37, 0.9);
+}
+
+.comparison-card__label {
+    width: fit-content;
+    margin-bottom: 14px;
+    padding: 7px 12px;
+    border: 1px solid rgba(232, 117, 37, 0.28);
+    border-radius: 999px;
+    color: var(--color-pumpkin-dark);
+    background: rgba(232, 117, 37, 0.08);
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.comparison-card h3 {
+    max-width: 330px;
+    padding-right: 74px;
+    color: var(--color-text);
+    font-size: clamp(1.45rem, 2vw, 2rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+.comparison-card ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(42, 33, 28, 0.12);
+}
+
+.comparison-card li {
+    position: relative;
+    padding-left: 16px;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.comparison-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-pumpkin);
+}
+
+/* адаптив */
+@media (max-width: 900px) {
+    .comparison-section .section-heading {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .comparison-section .section-heading p {
+        max-width: 680px;
+        justify-self: start;
+    }
+
+    .comparison-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .comparison-section .container {
+        width: min(100% - 24px, 1180px);
+    }
+
+    .comparison-card {
+        padding: 24px 20px;
+        border-radius: 22px;
+    }
+
+    .comparison-card__icon {
+        width: 70px;
+        height: 70px;
+        top: 22px;
+        right: 18px;
+        opacity: 0.68;
+    }
+
+    .comparison-card h3 {
+        padding-right: 58px;
+        font-size: clamp(1.35rem, 7vw, 1.9rem);
+    }
+
+    .comparison-card ul {
+        grid-template-columns: 1fr;
+        margin-top: 22px;
+    }
+}
+/* =========================
+   COMPARISON HEADING SPACE FIX
+========================= */
+
+.comparison-section .section-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+    gap: clamp(18px, 3vw, 38px);
+}
+
+.comparison-section .section-heading h2 {
+    max-width: 900px;
+}
+
+.comparison-section .section-heading p {
+    max-width: 360px;
+    justify-self: end;
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    .comparison-section .section-heading {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .comparison-section .section-heading p {
+        max-width: 680px;
+        justify-self: start;
+    }
+}
