@@ -866,3 +866,281 @@
         font-size: 0.95rem;
     }
 }
+
+/* =========================
+   REQUEST CLARITY — FULL WIDTH SLASH SPLIT
+========================= */
+
+.request-clarity-section {
+    overflow: hidden;
+    padding: 0;
+    background:
+        radial-gradient(circle at 84% 0%, rgba(232, 117, 37, 0.14), transparent 28rem),
+        linear-gradient(180deg, #15110e 0%, #0d0a08 100%);
+    border-top: 1px solid rgba(232, 216, 194, 0.14);
+    border-bottom: 1px solid rgba(232, 216, 194, 0.14);
+}
+
+.request-clarity-section .container-wide {
+    width: min(100% - 40px, 1440px);
+}
+
+/* одна цельная широкая секция, без gap между частями */
+.request-clarity__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
+    width: 100%;
+    min-height: 430px;
+    overflow: hidden;
+    border-left: 1px solid rgba(232, 216, 194, 0.16);
+    border-right: 1px solid rgba(232, 216, 194, 0.16);
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025), transparent 42%),
+        rgba(255, 255, 255, 0.014);
+    box-shadow: none;
+}
+
+/* общие карточки теперь не выглядят как отдельные карточки */
+.request-clarity__card {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* текстовая сторона */
+.request-clarity__card--text {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:
+        clamp(42px, 6vw, 82px) clamp(90px, 8vw, 140px) clamp(42px, 6vw, 82px) clamp(34px, 5vw, 70px);
+    background:
+        radial-gradient(circle at 18% 18%, rgba(232, 117, 37, 0.12), transparent 18rem),
+        linear-gradient(135deg, rgba(52, 41, 35, 0.68), rgba(13, 10, 8, 0.96));
+}
+
+.request-clarity__card--text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 46px;
+    bottom: 46px;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--color-pumpkin-light), var(--color-pumpkin-dark));
+}
+
+/* фото-сторона со скосом / */
+.request-clarity__card--photo {
+    z-index: 3;
+    margin-left: -96px;
+    clip-path: polygon(96px 0, 100% 0, 100% 100%, 0 100%);
+    background: var(--color-brown-card);
+}
+
+.request-clarity__card--photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg,
+            rgba(8, 6, 5, 0.42) 0%,
+            rgba(8, 6, 5, 0.16) 30%,
+            rgba(8, 6, 5, 0.08) 68%,
+            rgba(8, 6, 5, 0.34) 100%),
+        linear-gradient(180deg,
+            rgba(8, 6, 5, 0.08) 0%,
+            transparent 44%,
+            rgba(8, 6, 5, 0.36) 100%);
+    pointer-events: none;
+}
+
+/* декоративная линия по скосу */
+.request-clarity__card--photo::after {
+    content: "";
+    position: absolute;
+    left: 82px;
+    top: -8%;
+    z-index: 2;
+    width: 2px;
+    height: 116%;
+    transform: rotate(13deg);
+    transform-origin: top;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(232, 117, 37, 0.76),
+            rgba(232, 216, 194, 0.28),
+            transparent);
+    pointer-events: none;
+}
+
+.request-clarity__card--photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.94) contrast(1.04) brightness(0.88);
+    transform: scale(1.01);
+    transition:
+        transform 820ms ease,
+        filter var(--transition-base);
+}
+
+.request-clarity__card--photo:hover img {
+    transform: scale(1.06);
+    filter: saturate(1.08) contrast(1.06) brightness(1);
+}
+
+.request-clarity__card--text .section-kicker {
+    margin-bottom: 14px;
+}
+
+.request-clarity__card--text .section-kicker::before {
+    display: none;
+}
+
+.request-clarity__card--text h2 {
+    max-width: 680px;
+    color: #fff8ef;
+    font-size: clamp(2rem, 3.8vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.request-clarity__card--text p:not(.section-kicker) {
+    max-width: 570px;
+    margin-top: 18px;
+    color: rgba(248, 241, 232, 0.72);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.request-clarity__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.request-clarity__tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 8px 14px;
+    border: 1px solid rgba(232, 216, 194, 0.18);
+    border-radius: 999px;
+    color: var(--color-pumpkin-soft);
+    background: rgba(255, 255, 255, 0.045);
+    font-size: 0.82rem;
+    font-weight: 850;
+}
+
+/* tablet/mobile */
+@media (max-width: 900px) {
+    .request-clarity-section .container-wide {
+        width: 100%;
+    }
+
+    .request-clarity__grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    .request-clarity__card {
+        min-height: auto;
+    }
+
+    .request-clarity__card--text {
+        padding: 34px 28px 42px;
+    }
+
+    .request-clarity__card--photo {
+        margin-left: 0;
+        min-height: 320px;
+        clip-path: polygon(0 0, 100% 42px, 100% 100%, 0 100%);
+    }
+
+    .request-clarity__card--photo::after {
+        display: none;
+    }
+
+    .request-clarity__card--photo img {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 560px) {
+    .request-clarity__card--text {
+        padding: 30px 20px 38px;
+    }
+
+    .request-clarity__card--text h2 {
+        font-size: clamp(1.75rem, 8vw, 2.45rem);
+    }
+
+    .request-clarity__card--text p:not(.section-kicker) {
+        font-size: 0.92rem;
+    }
+
+    .request-clarity__card--photo,
+    .request-clarity__card--photo img {
+        min-height: 240px;
+    }
+}
+
+/* =========================
+   REQUEST CLARITY — NO SIDE GAPS
+========================= */
+
+.request-clarity-section {
+    padding: 0;
+}
+
+/* убираем отступы по бокам только у этой секции */
+.request-clarity-section .container-wide {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* сама полоса теперь от края до края */
+.request-clarity__grid {
+    width: 100%;
+    border-left: 0;
+    border-right: 0;
+}
+
+/* текст не должен липнуть к краю, но сама секция без боковых зазоров */
+.request-clarity__card--text {
+    padding-left: max(24px, calc((100vw - 1440px) / 2 + 42px));
+}
+
+/* фото справа тоже до самого края */
+.request-clarity__card--photo {
+    margin-right: 0;
+}
+
+@media (max-width: 900px) {
+    .request-clarity__card--text {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+@media (max-width: 560px) {
+    .request-clarity__card--text {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
