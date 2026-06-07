@@ -1714,3 +1714,81 @@
     }
 }
 
+/* =========================
+   SCOPE FACTORS — MOBILE HORIZONTAL SWIPE
+========================= */
+
+@media (max-width: 760px) {
+    .scope-section {
+        overflow: hidden;
+    }
+
+    .scope-factor-grid {
+        display: flex;
+        grid-template-columns: none;
+        gap: 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 0 12px;
+        margin-inline: -12px;
+        padding-inline: 12px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .scope-factor-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scope-factor {
+        flex: 0 0 178px;
+        min-height: 178px;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: start;
+        border: 1px solid rgba(42, 33, 28, 0.12);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.44);
+        box-shadow: 0 14px 34px rgba(21, 17, 14, 0.08);
+    }
+
+    .scope-factor__icon {
+        margin-bottom: 14px;
+    }
+
+    .scope-factor__icon svg {
+        width: 46px;
+        height: 46px;
+    }
+
+    .scope-factor h3 {
+        font-size: 0.98rem;
+    }
+
+    .scope-factor p {
+        max-width: 140px;
+        font-size: 0.8rem;
+    }
+
+    .scope-factor-grid::after {
+        content: "";
+        flex: 0 0 1px;
+    }
+}
+
+@media (max-width: 430px) {
+    .scope-factor {
+        flex-basis: 165px;
+        min-height: 168px;
+        padding: 18px 14px;
+    }
+
+    .scope-factor__icon svg {
+        width: 42px;
+        height: 42px;
+    }
+}
