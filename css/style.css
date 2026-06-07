@@ -2419,3 +2419,48 @@ body.menu-open .site-header {
         0 6px 18px rgba(0, 0, 0, 0.24),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
+
+/* =========================
+   FINAL CTA TITLE BALANCE
+========================= */
+
+.final-cta__card {
+    grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.final-cta__content {
+    max-width: 820px;
+}
+
+.final-cta__content h2 {
+    max-width: 820px;
+    font-size: clamp(2rem, 3.45vw, 3.45rem);
+    line-height: 1.04;
+    letter-spacing: -0.052em;
+}
+
+.final-cta__content p:not(.section-kicker) {
+    max-width: 640px;
+}
+
+@media (max-width: 900px) {
+    .final-cta__card {
+        grid-template-columns: 1fr;
+    }
+
+    .final-cta__content {
+        max-width: 100%;
+    }
+
+    .final-cta__content h2 {
+        max-width: 100%;
+        font-size: clamp(2rem, 6.8vw, 3rem);
+    }
+}
+
+@media (max-width: 520px) {
+    .final-cta__content h2 {
+        font-size: clamp(1.85rem, 8.5vw, 2.55rem);
+        line-height: 1.06;
+    }
+}
